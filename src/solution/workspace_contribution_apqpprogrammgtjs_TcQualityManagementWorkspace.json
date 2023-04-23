@@ -1,0 +1,15 @@
+{
+    "schemaVersion": "1.0.0",
+    "workspaceId": "TcQualityManagementWorkspace",
+    "availablePages": [
+        "showQPMDashboard",
+        "showReport",
+        "showMyReports",
+        "showReportBuilderReports",
+        "showMyDashboard",
+        "showNotStartedQualityProjects",
+        "showInProgressQualityProjects",
+        "showCompleteQualityProjects",
+        "showClosedQualityProjects"
+    ]
+}

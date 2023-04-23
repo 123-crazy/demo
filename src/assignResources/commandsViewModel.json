@@ -1,0 +1,89 @@
+{
+    "commands": {
+        "assignResourcesCommand": {
+            "iconId": "cmdAssignUsers",
+            "title": "{{i18n.assignResourcesCommandTitle}}",
+            "description": "{{i18n.assignResourcesCommandDescription}}"
+        }
+    },
+    "commandHandlers": {
+        "assignResourcesCommandHandler": {
+            "id": "assignResourcesCommand",
+            "action": "assignResources",
+            "activeWhen": true,
+            "visibleWhen": {
+                "condition": "conditions.objectIsSchedule"
+            }
+        }
+    },
+    "commandPlacements": {
+        "assignResourcesCommandaw_rightWall": {
+            "id": "assignResourcesCommand",
+            "uiAnchor": "aw_rightWall",
+            "priority": 100
+        }
+    },
+    "actions": {
+        "assignResources": {
+            "actionType": "JSFunction",
+            "method": "alert",
+            "deps": "js/assignResourcesCommandService",
+            "inputData": {
+                "scheduleUid": "{{ctx.selected.uid}}",
+                "ctx": "{{ctx}}",
+                "dataStatus": "{{data}}"
+            }
+        }
+    },
+    "data": {
+        "pagesize": 40,
+        "status": false
+    },
+    "onEvent": [
+        {
+            "eventId": "clickInfo",
+            "message": "clickInfo"
+        },
+        {
+            "eventId": "clickInfoEvent",
+            "message": "clickInfoMessage"
+        },
+        {
+            "eventId": "clickErrorEvent",
+            "message": "clickErrorMessage"
+        }
+    ],
+    "conditions": {
+        "objectIsSelected": {
+            "expression": "ctx.selected"
+        },
+        "objectIsSchedule": {
+            "expression": "ctx.selected.type=='ScheduleTask'"
+        }
+    },
+    "messages": {
+        "clickInfoMessage": {
+            "messageType": "INFO",
+            "messageText": "{{i18n.messageInfo}}"
+        },
+        "clickErrorMessage": {
+            "messageType": "ERROR",
+            "messageText": "{{i18n.messageError}}"
+        },
+        "clickInfo": {
+            "messageType": "ERROR",
+            "messageText": "{{i18n.messageError1}}"
+        }
+    },
+    "i18n": {
+        "assignResourcesCommandTitle": [
+            "assignResourcesMessages"
+        ],
+        "assignResourcesCommandDescription": [
+            "assignResourcesMessages"
+        ],
+        "messageError": "时间表资源指派失败！",
+        "messageError1": "请选择顶行操作",
+        "messageInfo": "时间表资源指派完成！"
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "commands": {
+        "updateDocCommand": {
+            "iconId": "cmdUpdateAssignedRevision",
+            "title": "{{i18n.updateDocCommandTitle}}",
+            "description": "{{i18n.updateDocCommandDescription}}"
+        }
+    },
+    "commandHandlers": {
+        "updateDocCommandHandler": {
+            "id": "updateDocCommand",
+            "action": "activateupdateDocCommand",
+            "activeWhen": true,
+            "visibleWhen": {
+                "condition": "conditions.objectIsRev"
+            }
+        }
+    },
+    "commandPlacements": {
+        "updateDocCommandaw_rightWall": {
+            "id": "updateDocCommand",
+            "uiAnchor": "aw_rightWall",
+            "priority": 100
+        }
+    },
+    "actions": {
+        "activateupdateDocCommand": {
+            "actionType": "JSFunction",
+            "method": "alert",
+            "deps": "js/updateDocCommandService",
+            "inputData": {
+                "revUid":"{{ctx.selected.uid}}"
+            }
+        }
+    },
+    "conditions": {
+        "objectIsSelected": {
+            "expression": "ctx.selected"
+        },
+        "objectIsRev": {
+            "expression": "ctx.selected.type.indexOf( 'Revision' ) > -1"
+        }
+    },
+    "i18n": {
+        "updateDocCommandTitle": [
+            "updateDocumentMessages"
+        ],
+        "updateDocCommandDescription": [
+            "updateDocumentMessages"
+        ]
+    }
+}

@@ -1,0 +1,1144 @@
+{
+  "BusinessObjectInterface": [
+    {
+      "createRelease": "Awp05.0.0",
+      "description": "Interface Name for Business Object Acp0CharsRulesAndNCProvider",
+      "libraryName": "Acp0awcontrolplan",
+      "name": "Acp0CharsRulesAndNCProvider",
+      "namespace": "Teamcenter::acp0awcontrolplan",
+      "primaryInterface": "true",
+      "typeName": "Acp0CharsRulesAndNCProvider"
+    },
+    {
+      "createRelease": "Awp05.0.0",
+      "description": "Interface Name for Business Object Acp0IpxmlDatasetProvider",
+      "libraryName": "Acp0awcontrolplan",
+      "name": "Acp0IpxmlDatasetProvider",
+      "namespace": "Teamcenter::acp0awcontrolplan",
+      "primaryInterface": "true",
+      "typeName": "Acp0IpxmlDatasetProvider"
+    },
+    {
+      "createRelease": "Awp04.3.0",
+      "description": "Interface Name for Business Object Acp0SPCCheck",
+      "libraryName": "Acp0awcontrolplan",
+      "name": "Acp0SPCCheck",
+      "namespace": "Teamcenter::acp0awcontrolplan",
+      "primaryInterface": "true",
+      "typeName": "Acp0SPCCheck"
+    },
+    {
+      "createRelease": "Awp04.3.0",
+      "description": "Interface Name for Business Object Acp0SPCCheckRevision",
+      "libraryName": "Acp0awcontrolplan",
+      "name": "Acp0SPCCheckRevision",
+      "namespace": "Teamcenter::acp0awcontrolplan",
+      "primaryInterface": "true",
+      "typeName": "Acp0SPCCheckRevision"
+    }
+  ],
+  "Date": "Mon Mar 02 08:59:30 AM 2020",
+  "Library": [
+    {
+      "createRelease": "Awp04.3.0",
+      "description": "This service contains the operation related to generating Control Plan Norm document from the Control Plan structure.",
+      "isThirdParty": "false",
+      "name": "Acp0SoaControlPlanAW",
+      "namespace": "Acp0::Soa::ControlPlan",
+      "serviceLibrary": "true"
+    },
+    {
+      "DependentOn": [
+        {
+          "name": "metaframework"
+        },
+        {
+          "name": "sa"
+        },
+        {
+          "name": "tccore"
+        },
+        {
+          "name": "tc"
+        },
+        {
+          "name": "cxpom"
+        },
+        {
+          "name": "awp0aws2"
+        }
+      ],
+      "createRelease": "Awp04.2.0",
+      "description": "Library for Acp0awcontrolplan",
+      "isThirdParty": "false",
+      "name": "Acp0awcontrolplan",
+      "namespace": "",
+      "serviceLibrary": "false"
+    }
+  ],
+  "Operation": [
+    {
+      "ParameterInfo": [
+        {
+          "description": "Input structure for creating and updating Rule Conditions.",
+          "parameterName": "createInputRule"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Acp0awcontrolplan",
+      "createRelease": "Awp05.0.0",
+      "dependencies": "",
+      "description": "This operation creates and updates RuleConditions (Acp0RuleConditions) by parsing the given input expression.",
+      "exceptionCondition": "",
+      "id": "createUpdateRuleConditions#const,Acp0::Soa::Internal::ControlPlan::_2020_05::RuleEngine::CreateInputRule,&",
+      "interface": "Acp0::Soa::ControlPlan::RuleEngine",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "createUpdateRuleConditions",
+      "opTemplate": "Acp0::Soa::Internal::ControlPlan::_2020_05::RuleEngine::CreateRuleExpresssionResponse#Acp0::Soa::ControlPlan::RuleEngine::createUpdateRuleConditions#const,Acp0::Soa::Internal::ControlPlan::_2020_05::RuleEngine::CreateInputRule,&",
+      "returnDescription": "Rule (Acp0Rule) and Rule Conditions (Acp0RuleConditons) are returned in the response. Following error codes are returned in the response.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420006&nbsp;&nbsp;&nbsp;&nbsp; Rule expression is empty.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420007&nbsp;&nbsp;&nbsp;&nbsp; Input Rule is not of valid type.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420008&nbsp;&nbsp;&nbsp;&nbsp;Naming Convention is not provided<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420009&nbsp;&nbsp;&nbsp;&nbsp;Naming convention is Invalid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420010&nbsp;&nbsp;&nbsp;&nbsp;Operation string provided as input is not valid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420011&nbsp;&nbsp;&nbsp;&nbsp;Rule status string provided as input is not valid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420012&nbsp;&nbsp;&nbsp;&nbsp;Input Rule Conditions are not of valid type.",
+      "useCase": "User has created the Rule with following conditions using Active workspace UI<br />Condition: If(( Pmi.Nominal_value &gt; 10 &amp; Pmi.LowerTolerance &lt;= 0.1 ) || Pmi.Context = Critical )<br />Condition objects will get created for every condition by storing the expression in prefix format for CLIPS evaluation.<br />Expression: If(( Pmi.Nominal_value &gt; 0 &amp; pmi.Tolerance  &lt; 10 ) || pmi.Context == Criticality )<br /><br /><b>Index&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>   Expression[]</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>&nbsp;&nbsp;&nbsp;&nbsp; Evaluation Result</b><br />0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pmi.Nominal_value &gt; 0 &amp; Pmi.Tolerance &gt;10 ||Pmi.context == Criticality&nbsp;&nbsp;&nbsp;&nbsp;<br />1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt; PMI.Nominal_value  0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;true<br />2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt; Pmi.Tolerance  10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;false<br />3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp;@1@2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;true &amp; false = false<br />4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     == Pmi.Context  Criticality&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;true<br />5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; || @3@4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;true"
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Input structure for generating control plan report (HTML Dataset) created from the Control Plan.",
+          "parameterName": "reportGenerationInput"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Acp0awcontrolplan",
+      "createRelease": "Awp04.3.0",
+      "dependencies": "",
+      "description": "This operation creates Control Plan norm document from the Control Plan structure, also this operation creates Dataset from the Control Plan document and relates this Dataset to Control Plan Object.",
+      "exceptionCondition": "",
+      "id": "generateControlPlanNormDoc#const,Acp0::Soa::Internal::ControlPlan::_2019_12::ControlPlanManagement::ReportGenerationInput,&",
+      "interface": "Acp0::Soa::ControlPlan::ControlPlanManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "generateControlPlanNormDoc",
+      "opTemplate": "Acp0::Soa::Internal::ControlPlan::_2019_12::ControlPlanManagement::ReportGenerationResponse#Acp0::Soa::ControlPlan::ControlPlanManagement::generateControlPlanNormDoc#const,Acp0::Soa::Internal::ControlPlan::_2019_12::ControlPlanManagement::ReportGenerationInput,&",
+      "returnDescription": "A html Dataset created from generated report. Following error codes are returned in the response.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420001   The Context object is not a Control Plan object.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420002   The Input Report Definition is not a Control Plan object.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420003   The report definition is empty.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420004   The report criteria values for BOM Report and Revision Rule are missing.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420005   Report option values for Report locale and RunAsync are missing.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420006   The dataset name is empty.",
+      "useCase": "1.&nbsp;&nbsp;&nbsp;&nbsp;User creates Control Plan structure in Active workspace as below <br />Control Plan <br />&nbsp;&nbsp;&nbsp;&nbsp;|__Inspection Operation<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |__Characteristics Representation &lt;=&gt; Characteristics Specification (Nominal Value = 10.000, Upper Tolerance =0.01, Lower Tolerance = -0.01)<br />2.&nbsp;&nbsp;&nbsp;&nbsp;User selects Control Plan in Active Workspace and on click of &ldquo;Print&rdquo; command the new operation generates the HTML document for Control Plan.<br />3.&nbsp;&nbsp;&nbsp;&nbsp;Properties of Control Plan (Cip0ControlPlanRevision), Inspection Operation (MEOperation), Characteristics Represenation (Aqc0CharElementRevision), and <br />Characteristics Specification (Qc0CharSpecification) used to create Control Plan norm document.<br />4.&nbsp;&nbsp;&nbsp;&nbsp; Using report definition for Control Plan (Cip0ControlPlanRevision) Control Plan Norm document gets created."
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of input of ImportPMIInControlPlanStructInput structure which contains Characteristics information data with BCT characteristic UID.",
+          "parameterName": "importPMIInControlPlanStructInputs"
+        },
+        {
+          "description": "Context object - Control Plan (<b>Cip0ControlPlanRevision</b>) or Operation(<b>MEOPRevision</b>). For associating the Part which has selected balloon or characteristics information and link the created Inspection Definition as a child of context object.",
+          "parameterName": "contextObject"
+        },
+        {
+          "description": "Map (businessObject, string) of Inspection Definition (<b>Aqc0CharElement</b>) and ipxml file paths.",
+          "parameterName": "inspectionDefsIPXMLMap"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Acp0awcontrolplan",
+      "createRelease": "Awp05.0.0",
+      "dependencies": "importPMIs2",
+      "description": "This Operation creates or searches the Characteristics (<b>Qc0VariableCharSpec</b>) based on Naming Convention (<b>Acp0NamingConvention</b>), Inspection definition (<b>Aqc0CharElement</b>) as a child of Control Plan or Operation and PMI Object (<b>Mci0PMI</b>) as a child of Inspection Definition (<b>Aqc0CharElement</b>).",
+      "exceptionCondition": "",
+      "id": "importPMIInControlPlanStruct#const,std::vector<Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::ImportPMIInControlPlanStructInput>,&$const,Teamcenter::BusinessObject,&$const,Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::InspectionDefsIPXMLMap,&",
+      "interface": "Acp0::Soa::ControlPlan::ControlPlanPmiImport",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "importPMIInControlPlanStruct",
+      "opTemplate": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::ImportPMIInControlPlanStructResp#Acp0::Soa::ControlPlan::ControlPlanPmiImport::importPMIInControlPlanStruct#const,std::vector<Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::ImportPMIInControlPlanStructInput>,&$const,Teamcenter::BusinessObject,&$const,Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::InspectionDefsIPXMLMap,&",
+      "returnDescription": "All created objects Characteristics (<b>Qc0VariableCharSpec</b>), Inspection Definition (<b>Aqc0CharElement</b>), PMI (<b>Mci0PMI</b>) are returned in the response. Following error codes are returned in the response.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420101 Input Context Object must be Control Plan or Operation.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420102 Input BCT Characteristics UID is empty.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420103 BCT services are offline or please check the network access.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420104 BCT service does not return the IPXML file.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420105 Import PMI failed.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420106 Association of Part and context Object(Control Plan/Operation) is failed.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420107 Input ipxml file path is not valid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420108 Input Inspection Definition is not of valid type.",
+      "useCase": "In Context of Control Plan: -<br />User is in Control plan structure on CAD View Tab (Active workspace UI) which has part design rendered with balloon and characteristics info.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- User selects the balloon/characteristic info row on part drawing and click import <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  PMI command for creating the PMI objects.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -Structural object creations in backend<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. This service operation creates or search characteristics group <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (<b>Qc0CharacteristicsGroup</b>) based on Naming Convention<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (<b>Acp0NamingConvention</b>). Under created or searched characteristics  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Group operation will create or search the characteristics<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<b>Qc0VariableCharSpec</b>).<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Create or Revise Inspection definition (<b>Aqc0CharElement</b>) as a child<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of Control plan and associate to Characteristics.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. This operation will create PMI (<b>Mci0PMI</b>) object as a child of <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Inspection Definition (<b>Aqc0CharElement</b>).<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   - Structural Representation :-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ControlPlan<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | __ Inspection Definition<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | __ PMI<br /><br />In Context of Operation:-<br />User is in Control plan structure and context of operation on CAD View Tab(Active workspace UI) which has part design rendered with balloon and characteristics info.<br />&nbsp;&nbsp;&nbsp;&nbsp;- User selects the balloon/characteristic info row on part drawing and click import PMI <br />&nbsp;&nbsp;&nbsp;&nbsp;   command for creating the PMI objects.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -Structural object creations in backend<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. This service operation creates or search characteristics <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; group (<b>Qc0CharacteristicsGroup</b>) based on<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Naming Convention (<b>Acp0NamingConvention</b> Under created or<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Searched Characteristics Group operation will create or search the<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Characteristics (<b>Qc0VariableCharSpec</b>).<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Create or Revise the Inspection definition<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<b>Aqc0CharElement</b>) as a child of Operation and associate to<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Characteristics.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. This operation will create PMI (<b>Mci0PMI</b>) object as a child of <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Inspection Definition (<b>Aqc0CharElement</b>).<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Structural Representation: -<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Control Plan<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | __ Operation<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | __ Inspection Definition<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | __ PMI"
+    }
+  ],
+  "OperationTemplate": [
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Acp0::Soa::Internal::ControlPlan::_2019_12::ControlPlanManagement::ReportGenerationInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Input structure for generating control plan report (HTML Dataset) created from the Control Plan.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "reportGenerationInput"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Acp0::Soa::Internal::ControlPlan::_2019_12::ControlPlanManagement::ReportGenerationResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp04.3.0",
+      "description": "This operation creates Control Plan norm document from the Control Plan structure, also this operation creates Dataset from the Control Plan document and relates this Dataset to Control Plan Object.",
+      "id": "Acp0::Soa::Internal::ControlPlan::_2019_12::ControlPlanManagement::ReportGenerationResponse#Acp0::Soa::ControlPlan::ControlPlanManagement::generateControlPlanNormDoc#const,Acp0::Soa::Internal::ControlPlan::_2019_12::ControlPlanManagement::ReportGenerationInput,&",
+      "name": "Acp0::Soa::ControlPlan::ControlPlanManagement::generateControlPlanNormDoc",
+      "returnConst": "false",
+      "returnDescription": "A html Dataset created from generated report. Following error codes are returned in the response.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420001   The Context object is not a Control Plan object.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420002   The Input Report Definition is not a Control Plan object.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420003   The report definition is empty.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420004   Report option values for Report locale and RunAsync are missing.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420005   The dataset name is empty.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::ImportPMIInControlPlanStructInput",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of input of ImportPMIInControlPlanStructInput structure which contains Characteristics information data with BCT characteristic UID.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "importPMIInControlPlanStructInputs"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::BusinessObject",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Context object - Control Plan (<b>Cip0ControlPlanRevision</b>) or Operation(<b>MEOPRevision</b>). For associating the Part which has selected balloon or characteristics information and link the created Inspection Definition as a child of context object.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "contextObject"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::InspectionDefsIPXMLMap",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Map (businessObject, string) of Inspection Definition (<b>Aqc0CharElement</b>) and ipxml file paths.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "inspectionDefsIPXMLMap"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::ImportPMIInControlPlanStructResp",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.0.0",
+      "description": "This Operation creates or searches the Characteristics (<b>Qc0VariableCharSpec</b>) based on Naming Convention (<b>Acp0NamingConvention</b>), Inspection definition (<b>Aqc0CharElement</b>) as a child of Control Plan or Operation and PMI Object (<b>Mci0PMI</b>) as a child of Inspection Definition (<b>Aqc0CharElement</b>).",
+      "id": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::ImportPMIInControlPlanStructResp#Acp0::Soa::ControlPlan::ControlPlanPmiImport::importPMIInControlPlanStruct#const,std::vector<Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::ImportPMIInControlPlanStructInput>,&$const,Teamcenter::BusinessObject,&$const,Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::InspectionDefsIPXMLMap,&",
+      "name": "Acp0::Soa::ControlPlan::ControlPlanPmiImport::importPMIInControlPlanStruct",
+      "returnConst": "false",
+      "returnDescription": "All created objects Characteristics (<b>Qc0VariableCharSpec</b>), Inspection Definition (<b>Aqc0CharElement</b>), PMI (<b>Mci0PMI</b>) are returned in the response. Following error codes are returned in the response.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420101 Input Context Object must be Control Plan or Operation.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420102 Input BCT Characteristics UID is empty.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420103 BCT services are offline or please check the network access.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420104 BCT service does not return the IPXML file.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420105 Import PMI failed.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420106 Association of Part and context Object(Control Plan/Operation) is failed.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420107 Input ipxml file path is not valid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420108 Input Inspection Definition is not of valid type.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Acp0::Soa::Internal::ControlPlan::_2020_05::RuleEngine::CreateInputRule",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Input structure for creating and updating Rule Conditions.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "createInputRule"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Acp0::Soa::Internal::ControlPlan::_2020_05::RuleEngine::CreateRuleExpresssionResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.0.0",
+      "description": "This operation creates and updates RuleConditions (Acp0RuleConditions) by parsing the given input expression.",
+      "id": "Acp0::Soa::Internal::ControlPlan::_2020_05::RuleEngine::CreateRuleExpresssionResponse#Acp0::Soa::ControlPlan::RuleEngine::createUpdateRuleConditions#const,Acp0::Soa::Internal::ControlPlan::_2020_05::RuleEngine::CreateInputRule,&",
+      "name": "Acp0::Soa::ControlPlan::RuleEngine::createUpdateRuleConditions",
+      "returnConst": "false",
+      "returnDescription": "Rule (Acp0Rule) and Rule Conditions (Acp0RuleConditons) are returned in the response. Following error codes are returned in the response.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420006&nbsp;&nbsp;&nbsp;&nbsp; Rule expression is empty.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420007&nbsp;&nbsp;&nbsp;&nbsp; Input Rule is not of valid type.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420008&nbsp;&nbsp;&nbsp;&nbsp;Naming Convention is not provided<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420009&nbsp;&nbsp;&nbsp;&nbsp;Naming convention is Invalid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420010&nbsp;&nbsp;&nbsp;&nbsp;Operation string provided as input is not valid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420011&nbsp;&nbsp;&nbsp;&nbsp;Rule status string provided as input is not valid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;420012&nbsp;&nbsp;&nbsp;&nbsp;Input Rule Conditions are not of valid type.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    }
+  ],
+  "ServiceInterface": [
+    {
+      "createRelease": "Awp04.3.0",
+      "dependencies": "",
+      "description": "This service contains the operation related to generating Control Plan Norm document from the Control Plan structure.",
+      "libraryName": "Acp0SoaControlPlanAW",
+      "name": "ControlPlanManagement",
+      "namespace": "Acp0::Soa::ControlPlan",
+      "serviceLibraryRef": ""
+    },
+    {
+      "createRelease": "Awp05.0.0",
+      "dependencies": "PMIManagement",
+      "description": "This service contains the operation related to creation of Characteristics (<b>Qc0VariableCharSpec</b>), Inspection Definition (<b>Aqc0CharElement</b>)  and PMI <b>(Mci0PMI</b>)  from selected balloon or characteristics from CAD drawing of part and associate respective part to the Operation (<b>MEOPRevision</b>) and Control plan (<b>Cip0ControlPlanRevision</b><br />).",
+      "libraryName": "Acp0SoaControlPlanAW",
+      "name": "ControlPlanPmiImport",
+      "namespace": "Acp0::Soa::ControlPlan",
+      "serviceLibraryRef": ""
+    },
+    {
+      "createRelease": "Awp05.0.0",
+      "dependencies": "ControlPlanManagement",
+      "description": "This service contains the operation related to Characteristics Rule Engine like parsing the expression to create the rule conditions. Create Inspection Definition and Characteristics Specification from the selected characteristics from CAD drawing.",
+      "libraryName": "Acp0SoaControlPlanAW",
+      "name": "RuleEngine",
+      "namespace": "Acp0::Soa::ControlPlan",
+      "serviceLibraryRef": ""
+    }
+  ],
+  "Struct": [
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Business object name string.",
+          "name": "boName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::StringMap"
+            }
+          ],
+          "description": "Map of string property names to values (string, string).",
+          "name": "stringProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::BoolVectorMap"
+            }
+          ],
+          "description": "Map of bool array property names to values(string, list of boolean values).",
+          "name": "boolArrayProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::TagMap"
+            }
+          ],
+          "description": "Map of BusinessObject property names to values (string, BusinessObject).",
+          "name": "tagProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::TagVectorMap"
+            }
+          ],
+          "description": "Map of BusinessObject property names to values (string, vectorlist of business objects).",
+          "name": "tagArrayProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::StringVectorMap"
+            }
+          ],
+          "description": "<br />Map of string array property names to values (string, list of strings).",
+          "name": "stringArrayProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::DoubleMap"
+            }
+          ],
+          "description": "Map of double property names to values (string, double).",
+          "name": "doubleProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::DoubleVectorMap"
+            }
+          ],
+          "description": "Map of double array property names to values (string, vectorlist of double values).",
+          "name": "doubleArrayProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::FloatMap"
+            }
+          ],
+          "description": "Map of float property names to values (string, float).",
+          "name": "floatProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::FloatVectorMap"
+            }
+          ],
+          "description": "Map of float array property names to values (string, list of float values).",
+          "name": "floatArrayProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::IntMap"
+            }
+          ],
+          "description": "Map of int property names to values (string, int).",
+          "name": "intProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::IntVectorMap"
+            }
+          ],
+          "description": "Map of int array property names to values (string, vectorlist of integer values).",
+          "name": "intArrayProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::BoolMap"
+            }
+          ],
+          "description": "Map of bool property names to values (string, bool).",
+          "name": "boolProps"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Charcteristics information data  of selected ballons/characteristics row from part CAD drawing to create characteristics objects.",
+      "isPublished": "false",
+      "name": "CreateCharInput",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport",
+      "scope": "Acp0::Soa::ControlPlan::ControlPlanPmiImport"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Source class represents the name of the class whose attributes are used for creating rule condition (Acp0RuleCondition). Currently the class used is  Mci0Pmi (Product Manufacturing Information). Currently this LOV will have only one value as Mci0Pmi but in future multiple classes will be supported.",
+          "name": "sourceClass"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Default Naming Convention to be used when none of the condition satisfies from the associated naming convention. This value is generated by the user through AW UI and stored in Database.",
+          "name": "defaultNamingConvention"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Status of the Rule (Active or Inactive). Only active rule will be evaluated.<br />Active : Only Active Rule will be used for condition evaluation.<br />Inactive : Inactive rules does not take part in condition evaluation.",
+          "name": "ruleStatus"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The operation (Create/Update) to apply to the  Rule and Conditions.<br />Create : Creates conditions (Acp0RuleConditions) for given Rule.<br />Update : Updates conditions (Acp0RuleConditions) for given Rule.",
+          "name": "operation"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "Rule (Acp0Rule) to be updated.",
+          "name": "rule"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Acp0::Soa::Internal::ControlPlan::_2020_05::RuleEngine::CreateInputRuleCondition"
+            }
+          ],
+          "description": "A list of input for creating Rule conditions (Acp0RuleConditions).",
+          "name": "ruleConditions"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Input structure for  updating Rule (Acp0Rule) and associated Rule conditions (Acp0RuleConditions) by parsing the input expression.",
+      "isPublished": "false",
+      "name": "CreateInputRule",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2020_05::RuleEngine",
+      "scope": "Acp0::Soa::ControlPlan::RuleEngine"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The name of  (Acp0NamingConvetion) objects and used as input for creating Rule condition (Acp0RuleCondition).",
+          "name": "namingConvention"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Expression for  updating Rule (Acp0Rule) and associated Conditions (Acp0RuleConditions).",
+          "name": "expression"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Input structure for creating Rule Condition (Acp0RuleCondition) for given input Rule (Acp0Rule) by parsing the input expression.",
+      "isPublished": "false",
+      "name": "CreateInputRuleCondition",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2020_05::RuleEngine",
+      "scope": "Acp0::Soa::ControlPlan::RuleEngine"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "Rule (Acp0Rule) object updated by referencing the Rule Condtions (Acp0RuleCondition).",
+          "name": "rule"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Conditions (Acp0RuleCondition) created by parsing the given epression.",
+          "name": "ruleConditions"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Contains any exceptions that occurred while performing the operation.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Output contains the rule (Acp0Rule) and Condition (Acp0RuleCondition) objects created by parsing the given expresion. Service data is populated with any exceptions that occurred while performing the operation.",
+      "isPublished": "false",
+      "name": "CreateRuleExpresssionResponse",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2020_05::RuleEngine",
+      "scope": "Acp0::Soa::ControlPlan::RuleEngine"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport::CreateCharInput"
+            }
+          ],
+          "description": "Characteristics information data to create characteristics objects (<b>Qc0VariableCharSpec</b>).",
+          "name": "createcharInput"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "BCT Characteristics Unique Identifier.",
+          "name": "bctCharUID"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Input structure to create Characteristics (<b>Qc0VariableCharSpec</b>), Inspection Definition (<b>Aqc0CharElement</b>) and PMI(<b>Mci0Pmi</b>) from given Input.<br />-Contains Characteristics information with BCT characteristic UID.",
+      "isPublished": "false",
+      "name": "ImportPMIInControlPlanStructInput",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport",
+      "scope": "Acp0::Soa::ControlPlan::ControlPlanPmiImport"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of created Characteristics Group objects.",
+          "name": "createdCharacteristicsGroups"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of created Characteristics objects.",
+          "name": "createdCharcteristics"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of created Inspection Definition objects.",
+          "name": "createdInspectionDefinitions"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of created PMI objects.",
+          "name": "createdPMIs"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Contains characteristics (<b>Qc0VariableCharSpec</b>), Inspection Definition (<b>Aqc0CharElement</b>) and PMI (<b>Mci0Pmi</b>) objects. and any exceptions that occurred while performing the operation.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Output contains the characteristics (Qc0VariableCharSpec), Inspection Definition (Aqc0CharElement) and PMI (Mci0Pmi) objects created by the given input structure. Service data is populated with any exceptions that occurred while performing the operation.",
+      "isPublished": "false",
+      "name": "ImportPMIInControlPlanStructResp",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport",
+      "scope": "Acp0::Soa::ControlPlan::ControlPlanPmiImport"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "Input context object. Only Cip0ControlPlanRevision are supported.",
+          "name": "contextObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "Report Definition.",
+          "name": "reportDefinitionObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "Stylesheet Object",
+          "name": "stylesheetObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Name of the report",
+          "name": "reportName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Name to be given to html dataset that gets created.",
+          "name": "datasetName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Acp0::Soa::Internal::ControlPlan::_2019_12::ControlPlanManagement::CriteriaValuesMap"
+            }
+          ],
+          "description": "A map (string, string) of parameters and values used for the report generation.",
+          "name": "criteriaValuesMap"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Acp0::Soa::Internal::ControlPlan::_2019_12::ControlPlanManagement::ReportOptionMap"
+            }
+          ],
+          "description": "A map (string, string) used to passs information like if the report is async and what locale to use for generation.Both option key are required.",
+          "name": "reportOptionMap"
+        }
+      ],
+      "createRelease": "Awp04.3.0",
+      "description": "Input structure for generating control plan report (HTML Dataset) created from the <br />Control Plan.<br /><br />Structure Elements:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;contextObject&nbsp;&nbsp;&nbsp;&nbsp;Input context object. Only Cip0ControlPlanRevision are supported.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;reportDefinitionObject&nbsp;&nbsp;&nbsp;&nbsp;Report Definition.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;reportName&nbsp;&nbsp;&nbsp;&nbsp;Name of the report.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;datasetName&nbsp;&nbsp;&nbsp;&nbsp;Name to be given to html dataset that gets created.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;criteriaValuesMap&nbsp;&nbsp;&nbsp;&nbsp;A map (string, string) of parameters and values used for the report generation.<br />Criteria keys = {&quot;BOM_REPORT&quot;, &ldquo;REV_RULE&quot;, &quot;VARIANT_RULE &quot;}<br />Criteria values = {&quot;TRUE&quot;, &quot;&lt;REV RULE NAME&gt;&quot;, &quot;&lt;VARIANT RULE NAME&gt;&quot;, &quot;&lt;TRUE/FALSE&gt;&quot;}<br />BOM_REPORT &ndash; It is flag indicating to process a structure and export format. If true PLMXML export format is used.This is required value.<br />REV_RULE &ndash; Revision Rule name used to configure the structure.This is required value.<br />VARIANT_RULE &ndash; Variant Rule UID used to configure structure.This value is not required now. Its for future extension.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;reportOptionMap&nbsp;&nbsp;&nbsp;&nbsp;A map (string, string) used to passs information like if the report is async and what locale to use for generation.Both option key are required.<br />option keys =  { REPORT_LOCALE, RUNASYNC }<br />option values  = { EN_US, FALSE}<br />REPORT_LOCALE &ndash; Locale to use for report generation.<br />RUNASYNC &ndash; Used to specify if the report needed is Sync or Async.",
+      "isPublished": "false",
+      "name": "ReportGenerationInput",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2019_12::ControlPlanManagement",
+      "scope": "Acp0::Soa::ControlPlan::ControlPlanManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Dataset"
+            }
+          ],
+          "description": "HTML Dataset created from html document generated from the Control Plan",
+          "name": "dataset"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Contains any exceptions that occurred while performing the operation.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "Awp04.3.0",
+      "description": "Output contains a HTML Datatset created from report generated from the control plan structure . Service data is populated with any exceptions that occurred while performing the operation.<br />Structure Elements:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;dataset&nbsp;&nbsp;&nbsp;&nbsp;HTML Dataset created from html document generated from the Control Plan<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;serviceData&nbsp;&nbsp;&nbsp;&nbsp;Contains any exceptions that occurred while performing the operation.",
+      "isPublished": "false",
+      "name": "ReportGenerationResponse",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2019_12::ControlPlanManagement",
+      "scope": "Acp0::Soa::ControlPlan::ControlPlanManagement"
+    }
+  ],
+  "TcVersion": "tc12000.0.0",
+  "Typedef": [
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "bool"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Map of bool property names to values.",
+      "isPublished": "false",
+      "name": "BoolMap",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport",
+      "scope": "Acp0::Soa::ControlPlan::ControlPlanPmiImport"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "bool"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Map of bool array property names to values.",
+      "isPublished": "false",
+      "name": "BoolVectorMap",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport",
+      "scope": "Acp0::Soa::ControlPlan::ControlPlanPmiImport"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp04.3.0",
+      "description": "A map (string, string) used to passs information like if the report is async and what locale to use for generation.Both option key are required.<br />option keys =  { REPORT_LOCALE, RUNASYNC }<br />option values  = { EN_US, FALSE}<br />REPORT_LOCALE &ndash; Locale to use for report generation.<br />RUNASYNC &ndash; Used to specify if the report needed is Sync or Async.",
+      "isPublished": "false",
+      "name": "ReportOptionMap",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2019_12::ControlPlanManagement",
+      "scope": "Acp0::Soa::ControlPlan::ControlPlanManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Map of string property names to values",
+      "isPublished": "false",
+      "name": "StringMap",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport",
+      "scope": "Acp0::Soa::ControlPlan::ControlPlanPmiImport"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Map of string array property names to values.",
+      "isPublished": "false",
+      "name": "StringVectorMap",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport",
+      "scope": "Acp0::Soa::ControlPlan::ControlPlanPmiImport"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Map of BusinessObject property names to values.",
+      "isPublished": "false",
+      "name": "TagMap",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport",
+      "scope": "Acp0::Soa::ControlPlan::ControlPlanPmiImport"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Map of BusinessObject property names to values.",
+      "isPublished": "false",
+      "name": "TagVectorMap",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport",
+      "scope": "Acp0::Soa::ControlPlan::ControlPlanPmiImport"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp04.3.0",
+      "description": "A map (string, string) of parameters and values used for the report generation.<br />Criteria keys = {&quot;BOM_REPORT&quot;, &ldquo;REV_RULE&quot;, &quot;VARIANT_RULE &quot;}<br />Criteria values = {&quot;TRUE&quot;, &quot;&lt;REV RULE NAME&gt;&quot;, &quot;&lt;VARIANT RULE NAME&gt;&quot;, &quot;&lt;TRUE/FALSE&gt;&quot;}<br />BOM_REPORT &ndash; It is flag indicating to process a structure and export format. If true PLMXML export format is used.This is required value.<br />REV_RULE &ndash; Revision Rule name used to configure the structure.This is required value.<br />VARIANT_RULE &ndash; Variant Rule UID used to configure structure.This value is not required now. Its for future extension.",
+      "isPublished": "false",
+      "name": "CriteriaValuesMap",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2019_12::ControlPlanManagement",
+      "scope": "Acp0::Soa::ControlPlan::ControlPlanManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "double"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Map of double property names to values",
+      "isPublished": "false",
+      "name": "DoubleMap",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport",
+      "scope": "Acp0::Soa::ControlPlan::ControlPlanPmiImport"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "double"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Map of double array property names to values.",
+      "isPublished": "false",
+      "name": "DoubleVectorMap",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport",
+      "scope": "Acp0::Soa::ControlPlan::ControlPlanPmiImport"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "float"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Map of float property names to values.",
+      "isPublished": "false",
+      "name": "FloatMap",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport",
+      "scope": "Acp0::Soa::ControlPlan::ControlPlanPmiImport"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "float"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Map of float array property names to values",
+      "isPublished": "false",
+      "name": "FloatVectorMap",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport",
+      "scope": "Acp0::Soa::ControlPlan::ControlPlanPmiImport"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            },
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Map of Inspection Definitions (<b>Aqc0CharElement</b>) to ipxml file paths.",
+      "isPublished": "false",
+      "name": "InspectionDefsIPXMLMap",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport",
+      "scope": "Acp0::Soa::ControlPlan::ControlPlanPmiImport"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "int"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Map of int property names to values.",
+      "isPublished": "false",
+      "name": "IntMap",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport",
+      "scope": "Acp0::Soa::ControlPlan::ControlPlanPmiImport"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "int"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Map of int array property names to values.",
+      "isPublished": "false",
+      "name": "IntVectorMap",
+      "namespace": "Acp0::Soa::Internal::ControlPlan::_2020_05::ControlPlanPmiImport",
+      "scope": "Acp0::Soa::ControlPlan::ControlPlanPmiImport"
+    }
+  ],
+  "xmlns": "http://teamcenter.com/BusinessModel/TcBusinessData"
+}

@@ -1,0 +1,8 @@
+[18:16:52] info: >>> Creating out\site.zip
+[18:16:52] info: >>> Creating out\darsi.zip
+[18:17:05] info: >>> out\darsi.zip created (13 s)
+[18:17:05] info: >>> Uploading to http://plm13:3000...
+[18:17:25] info: >>> out\darsi.zip uploaded to http://plm13:3000 (20 s)
+[18:17:25] info: >>> out\site.zip created (33 s)
+[18:17:25] info: >>> Uploading to http://plm13:3000...
+[18:17:42] info: >>> out\site.zip uploaded to http://plm13:3000 (17 s)

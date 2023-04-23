@@ -1,0 +1,343 @@
+{
+    "countries": [
+        {
+            "type": "Country",
+            "uid": 0,
+            "typeIconURL": "",
+            "props": {
+                "name": {
+                    "type": "STRING",
+                    "hasLov": false,
+                    "isArray": false,
+                    "displayValue": "Aruba",
+                    "uiValue": "Aruba",
+                    "value": "Aruba",
+                    "propertyName": "name",
+                    "propertyDisplayName": "Country Name",
+                    "isEnabled": true
+                },
+                "cca3": {
+                    "type": "STRING",
+                    "hasLov": false,
+                    "isArray": false,
+                    "displayValue": "ABW",
+                    "uiValue": "ABW",
+                    "value": "ABW",
+                    "propertyName": "cca3",
+                    "propertyDisplayName": "Country Code",
+                    "isEnabled": true
+                },
+                "currency": {
+                    "type": "STRING",
+                    "hasLov": false,
+                    "isArray": false,
+                    "displayValue": "AWG",
+                    "uiValue": "AWG",
+                    "value": "AWG",
+                    "propertyName": "currency",
+                    "propertyDisplayName": "Currency",
+                    "isEnabled": true
+                },
+                "capital": {
+                    "type": "STRING",
+                    "hasLov": false,
+                    "isArray": false,
+                    "displayValue": "Oranjestad",
+                    "uiValue": "Oranjestad",
+                    "value": "Oranjestad",
+                    "propertyName": "capital",
+                    "propertyDisplayName": "Capital",
+                    "isEnabled": true
+                },
+                "region": {
+                    "type": "STRING",
+                    "hasLov": true,
+                    "propertyName": "region",
+                    "propertyDisplayName": "Region",
+                    "isEnabled": true,
+                    "value": "Americas",
+                    "isArray": false,
+                    "displayValue": "Americas",
+                    "uiValue": "Americas"
+                },
+                "subregion": {
+                    "type": "STRING",
+                    "hasLov": false,
+                    "isArray": false,
+                    "displayValue": "Caribbean",
+                    "uiValue": "Caribbean",
+                    "value": "Caribbean",
+                    "propertyName": "subregion",
+                    "propertyDisplayName": "Subregion",
+                    "isEnabled": true
+                },
+                "latlang": {
+                    "type": "STRING",
+                    "hasLov": false,
+                    "isArray": true,
+                    "displayValues": [
+                        "12.5",
+                        "-69.96666666"
+                    ],
+                    "uiValues": [
+                        "12.5",
+                        "-69.96666666"
+                    ],
+                    "value": [
+                        "12.5",
+                        "-69.96666666"
+                    ],
+                    "propertyName": "latlang",
+                    "propertyDisplayName": "Latitude and Longitude",
+                    "isEnabled": true
+                },
+                "borders": {
+                    "type": "STRING",
+                    "hasLov": false,
+                    "isArray": false,
+                    "displayValue": "",
+                    "uiValue": "",
+                    "value": null,
+                    "propertyName": "borders",
+                    "propertyDisplayName": "Borders",
+                    "isEnabled": true
+                },
+                "population": {
+                    "type": "INTEGER",
+                    "hasLov": false,
+                    "isArray": false,
+                    "displayValue": "71,891",
+                    "uiValue": "71,891",
+                    "value": 71891,
+                    "propertyName": "population",
+                    "propertyDisplayName": "Population",
+                    "isEnabled": true
+                },
+                "area": {
+                    "type": "INTEGER",
+                    "hasLov": false,
+                    "isArray": false,
+                    "displayValue": "193",
+                    "uiValue": "193",
+                    "value": 193,
+                    "propertyName": "area",
+                    "propertyDisplayName": "Area sq. mi.",
+                    "isEnabled": true
+                },
+                "density": {
+                    "type": "DOUBLE",
+                    "hasLov": false,
+                    "isArray": false,
+                    "displayValue": "372.5",
+                    "uiValue": "372.5",
+                    "value": 372.5,
+                    "propertyName": "density",
+                    "propertyDisplayName": "Pop. Density per sq. mi.",
+                    "isEnabled": true
+                },
+                "date_modified": {
+                    "type": "DATE",
+                    "hasLov": false,
+                    "isArray": false,
+                    "displayValue": "11-Nov-1996 02:24",
+                    "uiValue": "11-Nov-1996 02:24",
+                    "value": 847697051563,
+                    "propertyName": "date_modified",
+                    "propertyDisplayName": "Last Modified Date",
+                    "isEnabled": true
+                },
+                "geography": {
+                    "type": "STRING",
+                    "hasLov": false,
+                    "isArray": false,
+                    "displayValue": "",
+                    "uiValue": "",
+                    "value": "",
+                    "propertyName": "geography",
+                    "propertyDisplayName": "Geography",
+                    "isEnabled": true
+                }
+            }
+        },
+        {
+            "type": "Country",
+            "uid": 1,
+            "typeIconURL": "",
+            "props": {
+                "name": {
+                    "type": "STRING",
+                    "hasLov": false,
+                    "isArray": false,
+                    "displayValue": "Afghanistan",
+                    "uiValue": "Afghanistan",
+                    "value": "Afghanistan",
+                    "propertyName": "name",
+                    "propertyDisplayName": "Country Name",
+                    "isEnabled": true
+                },
+                "cca3": {
+                    "type": "STRING",
+                    "hasLov": false,
+                    "isArray": false,
+                    "displayValue": "AFG",
+                    "uiValue": "AFG",
+                    "value": "AFG",
+                    "propertyName": "cca3",
+                    "propertyDisplayName": "Country Code",
+                    "isEnabled": true
+                },
+                "currency": {
+                    "type": "STRING",
+                    "hasLov": false,
+                    "isArray": false,
+                    "displayValue": "AFN",
+                    "uiValue": "AFN",
+                    "value": "AFN",
+                    "propertyName": "currency",
+                    "propertyDisplayName": "Currency",
+                    "isEnabled": true
+                },
+                "capital": {
+                    "type": "STRING",
+                    "hasLov": false,
+                    "isArray": false,
+                    "displayValue": "Kabul",
+                    "uiValue": "Kabul",
+                    "value": "Kabul",
+                    "propertyName": "capital",
+                    "propertyDisplayName": "Capital",
+                    "isEnabled": true
+                },
+                "region": {
+                    "type": "STRING",
+                    "hasLov": true,
+                    "propertyName": "region",
+                    "propertyDisplayName": "Region",
+                    "isEnabled": true,
+                    "value": "Asia",
+                    "isArray": false,
+                    "displayValue": "Asia",
+                    "uiValue": "Asia"
+                },
+                "subregion": {
+                    "type": "STRING",
+                    "hasLov": false,
+                    "isArray": false,
+                    "displayValue": "Southern Asia",
+                    "uiValue": "Southern Asia",
+                    "value": "Southern Asia",
+                    "propertyName": "subregion",
+                    "propertyDisplayName": "Subregion",
+                    "isEnabled": true
+                },
+                "latlang": {
+                    "type": "STRING",
+                    "hasLov": false,
+                    "isArray": true,
+                    "displayValues": [
+                        "33",
+                        "65"
+                    ],
+                    "uiValues": [
+                        "33",
+                        "65"
+                    ],
+                    "value": [
+                        "33",
+                        "65"
+                    ],
+                    "propertyName": "latlang",
+                    "propertyDisplayName": "Latitude and Longitude",
+                    "isEnabled": true
+                },
+                "borders": {
+                    "type": "STRING",
+                    "hasLov": false,
+                    "isArray": true,
+                    "displayValues": [
+                        "IRN",
+                        "PAK",
+                        "TKM",
+                        "UZB",
+                        "TJK",
+                        "CHN"
+                    ],
+                    "uiValues": [
+                        "IRN",
+                        "PAK",
+                        "TKM",
+                        "UZB",
+                        "TJK",
+                        "CHN"
+                    ],
+                    "value": [
+                        "IRN",
+                        "PAK",
+                        "TKM",
+                        "UZB",
+                        "TJK",
+                        "CHN"
+                    ],
+                    "propertyName": "borders",
+                    "propertyDisplayName": "Borders",
+                    "isEnabled": true
+                },
+                "population": {
+                    "type": "INTEGER",
+                    "hasLov": false,
+                    "isArray": false,
+                    "displayValue": "31,056,997",
+                    "uiValue": "31,056,997",
+                    "value": 31056997,
+                    "propertyName": "population",
+                    "propertyDisplayName": "Population",
+                    "isEnabled": true
+                },
+                "area": {
+                    "type": "INTEGER",
+                    "hasLov": false,
+                    "isArray": false,
+                    "displayValue": "647,500",
+                    "uiValue": "647,500",
+                    "value": 647500,
+                    "propertyName": "area",
+                    "propertyDisplayName": "Area sq. mi.",
+                    "isEnabled": true
+                },
+                "density": {
+                    "type": "DOUBLE",
+                    "hasLov": false,
+                    "isArray": false,
+                    "displayValue": "48",
+                    "uiValue": "48",
+                    "value": 48,
+                    "propertyName": "density",
+                    "propertyDisplayName": "Pop. Density per sq. mi.",
+                    "isEnabled": true
+                },
+                "date_modified": {
+                    "type": "DATE",
+                    "hasLov": false,
+                    "isArray": false,
+                    "displayValue": "31-Aug-1998 10:58",
+                    "uiValue": "31-Aug-1998 10:58",
+                    "value": 904575501951,
+                    "propertyName": "date_modified",
+                    "propertyDisplayName": "Last Modified Date",
+                    "isEnabled": true
+                },
+                "geography": {
+                    "type": "STRING",
+                    "hasLov": false,
+                    "isArray": false,
+                    "displayValue": "",
+                    "uiValue": "",
+                    "value": "",
+                    "propertyName": "geography",
+                    "propertyDisplayName": "Geography",
+                    "isEnabled": true
+                }
+            }
+        }
+    ]
+}

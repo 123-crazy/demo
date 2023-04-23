@@ -1,0 +1,53 @@
+{
+    "commands": {
+        "createRFQCommand": {
+            "iconId": "cmdAdd",
+            "title": "{{i18n.createRFQCommandTitle}}",
+            "description": "{{i18n.createRFQCommandDescription}}"
+        }
+    },
+    "commandHandlers": {
+        "createRFQCommandHandler": {
+            "id": "createRFQCommand",
+            "action": "activatecreateRFQCommand",
+            "activeWhen": true,
+            "visibleWhen": {
+                "condition": "conditions.true"
+            }
+        }
+    },
+    "commandPlacements": {
+        "createRFQCommandaw_rightWall": {
+            "id": "createRFQCommand",
+            "uiAnchor": "aw_rightWall",
+            "priority": 100
+        }
+    },
+    "actions": {
+        "activatecreateRFQCommand": {
+            "actionType": "JSFunction",
+            "method": "openCreatePanel",
+            "deps": "js/createRFQCommandService",
+            "inputData": {
+                "commandId": "createRFQCommand",
+                "location": "aw_toolsAndInfo"
+            }
+        }
+    },
+    "conditions": {
+        "objectIsSelected": {
+            "expression": "ctx.selected"
+        },
+        "objectIsFolder": {
+            "expression": "ctx.selected.type=='Folder'"
+        }
+    },
+    "i18n": {
+        "createRFQCommandTitle": [
+            "createRFQMessages"
+        ],
+        "createRFQCommandDescription": [
+            "createRFQMessages"
+        ]
+    }
+}

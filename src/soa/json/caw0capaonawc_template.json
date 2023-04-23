@@ -1,0 +1,912 @@
+{
+  "BusinessObjectInterface": [
+    {
+      "createRelease": "Awp04.2.0",
+      "description": "Interface Name for Business Object CAW05Why",
+      "libraryName": "CAW0awcapa",
+      "name": "CAW05Why",
+      "namespace": "caw0capaonawc",
+      "primaryInterface": "true",
+      "typeName": "CAW05Why"
+    },
+    {
+      "createRelease": "Awp05.0.0",
+      "description": "Interface Name for Business Object CAW0CAPADatasetProvider",
+      "libraryName": "CAW0awcapa",
+      "name": "CAW0CAPADatasetProvider",
+      "namespace": "caw0capaonawc",
+      "primaryInterface": "true",
+      "typeName": "CAW0CAPADatasetProvider"
+    },
+    {
+      "createRelease": "Awp04.2.0",
+      "description": "Interface Name for Business Object CAW0CausedBy",
+      "libraryName": "CAW0awcapa",
+      "name": "CAW0CausedBy",
+      "namespace": "caw0capaonawc",
+      "primaryInterface": "true",
+      "typeName": "CAW0CausedBy"
+    },
+    {
+      "createRelease": "Awp04.2.0",
+      "description": "Interface Name for Business Object CAW0Defect",
+      "libraryName": "CAW0awcapa",
+      "name": "CAW0Defect",
+      "namespace": "caw0capaonawc",
+      "primaryInterface": "true",
+      "typeName": "CAW0Defect"
+    },
+    {
+      "createRelease": "Awp04.2.0",
+      "description": "Interface Name for Business Object CAW0Ishikawa",
+      "libraryName": "CAW0awcapa",
+      "name": "CAW0Ishikawa",
+      "namespace": "caw0capaonawc",
+      "primaryInterface": "true",
+      "typeName": "CAW0Ishikawa"
+    },
+    {
+      "createRelease": "Awp05.1.0",
+      "description": "Interface Name for Business Object CAW0SymptomDefectProvider",
+      "libraryName": "CAW0awcapa",
+      "name": "CAW0SymptomDefectProvider",
+      "namespace": "caw0capaonawc",
+      "primaryInterface": "true",
+      "typeName": "CAW0SymptomDefectProvider"
+    },
+    {
+      "createRelease": "Awp04.2.0",
+      "description": "Interface Name for Business Object CAW0Team",
+      "libraryName": "CAW0awcapa",
+      "name": "CAW0Team",
+      "namespace": "caw0capaonawc",
+      "primaryInterface": "true",
+      "typeName": "CAW0Team"
+    }
+  ],
+  "Date": "Tue Jun 30 08:02:16 PM 2020",
+  "Library": [
+    {
+      "createRelease": "Awp04.2.0",
+      "description": "Active workspace service library for CAPA",
+      "isThirdParty": "false",
+      "name": "CAW0SoaCapaonawc",
+      "namespace": "CAW0::Soa::Capaonawc",
+      "serviceLibrary": "true"
+    },
+    {
+      "DependentOn": [
+        {
+          "name": "metaframework"
+        },
+        {
+          "name": "sa"
+        },
+        {
+          "name": "tccore"
+        },
+        {
+          "name": "tc"
+        },
+        {
+          "name": "cxpom"
+        }
+      ],
+      "createRelease": "Awp04.2.0",
+      "description": "Active workspace library for CAPA.",
+      "isThirdParty": "false",
+      "name": "CAW0awcapa",
+      "namespace": "",
+      "serviceLibrary": "false"
+    }
+  ],
+  "Operation": [
+    {
+      "ParameterInfo": [
+        {
+          "description": "Input data structure for operation input. It consists of context object C2CapaRevision, dataset type (MSExcel) to create, FMS file ticket to get file path to import, and import as named reference type &ldquo;excel&rdquo;. Relation C2CapaReport is created between context object C2CapaRevision and new dataset MSExcel. Operation remove dataset type CrfOutputExcel from current user Newstuff folder created by generateReport service operation.",
+          "parameterName": "attachCapaReportsInput"
+        }
+      ],
+      "canOverride": "false",
+      "component": "CAW0capaonawc",
+      "createRelease": "Awp05.0.0",
+      "dependencies": "",
+      "description": "This operation creates a CrfOutputExcel dataset in User&rsquo;s Newstuff Folder based on an FMS  ticket from a previous call to generateReport with an operation of: reportbuild.generateitemreportcomplete<br />This Operation creates a Dataset with input dataset type. Download the file using input FMS file ticket to a temporary location and import the downloaded file named as a reference to new Dataset. A relation between newly created Dataset and input context object C2CapaRevision will be created. Operation will also delete CrfOutputExcel dataset from User&rsquo;s Newstuff Folder created by generateReport operation.",
+      "exceptionCondition": "",
+      "id": "attachCapaReports#const,CAW0::Soa::Internal::Capaonawc::_2020_05::QualityIssueManagement::AttachReportsInput,&",
+      "interface": "CAW0::Soa::Capaonawc::QualityIssueManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "attachCapaReports",
+      "opTemplate": "CAW0::Soa::Internal::Capaonawc::_2020_05::QualityIssueManagement::AttachReportsResponse#CAW0::Soa::Capaonawc::QualityIssueManagement::attachCapaReports#const,CAW0::Soa::Internal::Capaonawc::_2020_05::QualityIssueManagement::AttachReportsInput,&",
+      "returnDescription": "Newly created Dataset object.  Dataset object is also added to created data in the returned ServiceData object.<br />The following partial errors may be returned:  <br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;422012 &ndash; The Attach Capa Reports operation input context object is  invalid.  <br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;422013 &ndash; The Attach Capa Reports operation input relation name is invalid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;422014 &ndash; The Attach Capa Reports operation input dataset type to create is invalid. <br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;422015 &ndash; The Attach Capa Reports operation input named reference type is invalid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;422016 &ndash; The Attach Capa Reports operation FMS read ticket is invalid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;422017 &ndash; The Attach Capa Reports operation input dataset type to remove is invalid. <br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;422018 &ndash; The Attach Capa Reports operation report file does not exist for input FMS file ticket.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;422002 &ndash; &lt;Invalid_Relation_Name&gt; relation name is invalid.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of DeriveInput containing CAPA Revision object to be derived, a structure containing property name and values to be propagated, Deep Copy Data, a flag to automatically submit to workflow or not, a workflow template name and a flag to propagate relations or not.",
+          "parameterName": "deriveInput"
+        },
+        {
+          "description": "List of Structure contain deep copy option to carry forward Defect Object to derive CAPA Revision object with target Problem Description relation. Structure provide flag which decide how the target object is related to derived CAPA Revision.",
+          "parameterName": "deriveOptions"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Awp0AWS",
+      "createRelease": "Awp05.1.0",
+      "dependencies": "",
+      "description": "This operation derives Quality Issue or Customer Complaint Issue or Non-Conformance Issue objects and carry forward its relations based on the propagate Relation flag. When applying deep copy rules, if user overridden deep copy information is provided in the input, then old relations are propagated to the new CAPA Revision based on the input. If no deep copy information is provided in the input, the deep rules in the database will apply. Input consists list of Defect objects to carry forward to Derive CAPA Revision object. Input list of derive option structure will define how Defect object is carry forward to Derive CAPA Revision object.",
+      "exceptionCondition": "",
+      "id": "deriveProblemSolvingItems#const,CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement::DeriveInput,&$const,CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement::DeepCopyOption,&",
+      "interface": "CAW0::Soa::Capaonawc::QualityIssueManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "deriveProblemSolvingItems",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#CAW0::Soa::Capaonawc::QualityIssueManagement::deriveProblemSolvingItems#const,CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement::DeriveInput,&$const,CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement::DeepCopyOption,&",
+      "returnDescription": "ServiceData: <br /><br />Created Change CAPA.<br />Created Change CAPA Revision.<br />The return contains failures for any element in the input list are returned as a Partial Error in the ServiceData. The following partial errors may be returned:<br />233018&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Relation creation is not allowed.<br />233071&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Missing default workflow template preference is missing, or value is empty.<br />234024&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The &lt;object_name&gt; cannot be deirved for the following reason:",
+      "useCase": "&bull;&nbsp;&nbsp;&nbsp;&nbsp;The requestor (who may be the analyst of the Quality Issue or Customer Complaint Issue or Non-Conformance Issue) derives a new CAPA Revision to address the Quality Issue. The CAPA Revision addressed root cause analysis of the Issue.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;Derive a CAPA Revision from a Quality Issue or Customer Complaint Issue or Non-Conformance Issue to determine the root cause of the Quality Issue.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;Derive a CAPA from Quality Issue along with Symptom Defect object based on Flag provided how the Symptom defect is carry forward to CAPA Revision."
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Llist of CAW0Defect, CAW05Why objects to query the child data.",
+          "parameterName": "parentList"
+        },
+        {
+          "description": "Depth of the Tree structure to query the children.",
+          "parameterName": "level"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Awp0AWS",
+      "createRelease": "Awp04.2.0",
+      "dependencies": "",
+      "description": "Operation get children of list of objects CAW0Defect , CAW05Why with input number of level to retrieve the children.",
+      "exceptionCondition": "",
+      "id": "getChildrenInfo#const,std::vector<Teamcenter::BusinessObject>,&$int",
+      "interface": "CAW0::Soa::Capaonawc::QualityIssueManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "getChildrenInfo",
+      "opTemplate": "CAW0::Soa::Internal::Capaonawc::_2019_06::QualityIssueManagement::OutputChildrenResponse#CAW0::Soa::Capaonawc::QualityIssueManagement::getChildrenInfo#const,std::vector<Teamcenter::BusinessObject>,&$int",
+      "returnDescription": "Structure of Map of &lt; Teamcenter::BusinessObject, std::vector&lt; Teamcenter::BusinessObject &gt;  of CAW0Defect and CAW05Why objects as key and list of CAW0Defect, CAW05Why, CAW0Why objects as their children and service data contains any partial errors which may have been encountered during processing. All business objects which are returned are added to the service data's plain objects list as well.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "The list of InputMarkAsRootCauseData objects to mark as root cause for the problem occurred for C2CapaRevision, property name to set on CAW0Defect object and relation name to create between C2CapaRevision object and CAW0Defect object.",
+          "parameterName": "input"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Awp0AWS",
+      "createRelease": "Awp04.2.0",
+      "dependencies": "",
+      "description": "This operation marks the input Object CAW0Defect as root cause by setting the property caw0rootcause as true and create relation between CAW0Defect Object as secondary to C2CapaRevision object as primary.<br />If any other CAW0Defect objects are already present as root cause for C2CapaRevision this operation will set its caw0rootcause property as false and delete the relationship between exiting root cause CAW0Defect object and C2CapaRevision.",
+      "exceptionCondition": "",
+      "id": "markObjectAsRootCause#const,std::vector<CAW0::Soa::Internal::Capaonawc::_2019_06::QualityIssueManagement::InputMarkAsRootCauseData>,&",
+      "interface": "CAW0::Soa::Capaonawc::QualityIssueManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "markObjectAsRootCause",
+      "opTemplate": "CAW0::Soa::Internal::Capaonawc::_2019_06::QualityIssueManagement::OutputMarkAsRootCauseData#CAW0::Soa::Capaonawc::QualityIssueManagement::markObjectAsRootCause#const,std::vector<CAW0::Soa::Internal::Capaonawc::_2019_06::QualityIssueManagement::InputMarkAsRootCauseData>,&",
+      "returnDescription": "A list of CAW0Defect objects marked as root cause successfully, list of CAW0Defect object to failed mark as root cause All business objects which are returned are added to the service data's plain objects list as well.",
+      "useCase": ""
+    }
+  ],
+  "OperationTemplate": [
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "CAW0::Soa::Internal::Capaonawc::_2020_05::QualityIssueManagement::AttachReportsInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Input data structure for operation input. It consists of context object C2CapaRevision, dataset type (MSExcel) to create, FMS file ticket to get file path to import, and import as named reference type &ldquo;excel&rdquo;. Relation C2CapaReport is created between context object C2CapaRevision and new dataset MSExcel. Operation remove dataset type CrfOutputExcel from current user Newstuff folder created by generateReport service operation.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "attachCapaReportsInput"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "CAW0::Soa::Internal::Capaonawc::_2020_05::QualityIssueManagement::AttachReportsResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.0.0",
+      "description": "This operation creates a CrfOutputExcel dataset in User&rsquo;s Newstuff Folder based on an FMS  ticket from a previous call to generateReport with an operation of: reportbuild.generateitemreportcomplete<br />This Operation creates a Dataset with input dataset type. Download the file using input FMS file ticket to a temporary location and import the downloaded file named as a reference to new Dataset. A relation between newly created Dataset and input context object C2CapaRevision will be created. Operation will also delete CrfOutputExcel dataset from User&rsquo;s Newstuff Folder created by generateReport operation.",
+      "id": "CAW0::Soa::Internal::Capaonawc::_2020_05::QualityIssueManagement::AttachReportsResponse#CAW0::Soa::Capaonawc::QualityIssueManagement::attachCapaReports#const,CAW0::Soa::Internal::Capaonawc::_2020_05::QualityIssueManagement::AttachReportsInput,&",
+      "name": "CAW0::Soa::Capaonawc::QualityIssueManagement::attachCapaReports",
+      "returnConst": "false",
+      "returnDescription": "Newly created Dataset object.  Dataset object is also added to created data in the returned ServiceData object.<br />The following partial errors may be returned:  <br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;422012 &ndash; The Attach Capa Reports operation input context object is  invalid.  <br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;422013 &ndash; The Attach Capa Reports operation input relation name is invalid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;422014 &ndash; The Attach Capa Reports operation input dataset type to create is invalid. <br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;422015 &ndash; The Attach Capa Reports operation input named reference type is invalid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;422016 &ndash; The Attach Capa Reports operation FMS read ticket is invalid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;422017 &ndash; The Attach Capa Reports operation input dataset type to remove is invalid. <br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;422018 &ndash; The Attach Capa Reports operation report file does not exist for input FMS file ticket.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;422002 &ndash; &lt;Invalid_Relation_Name&gt; relation name is invalid.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement::DeriveInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of DeriveInput containing CAPA Revision object to be derived, a structure containing property name and values to be propagated, Deep Copy Data, a flag to automatically submit to workflow or not, a workflow template name and a flag to propagate relations or not.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "deriveInput"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement::DeepCopyOption",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "List of Structure contain deep copy option to carry forward Defect Object to derive CAPA Revision object with target Problem Description relation. Structure provide flag which decide how the target object is related to derived CAPA Revision.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "deriveOptions"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.1.0",
+      "description": "This operation derives Quality Issue or Customer Complaint Issue or Non-Conformance Issue objects and carry forward its relations based on the propagate Relation flag. When applying deep copy rules, if user overridden deep copy information is provided in the input, then old relations are propagated to the new CAPA Revision based on the input. If no deep copy information is provided in the input, the deep rules in the database will apply. Input consists list of Defect objects to carry forward to Derive CAPA Revision object. Input list of derive option structure will define how Defect object is carry forward to Derive CAPA Revision object.",
+      "id": "Teamcenter::Soa::Server::ServiceData#CAW0::Soa::Capaonawc::QualityIssueManagement::deriveProblemSolvingItems#const,CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement::DeriveInput,&$const,CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement::DeepCopyOption,&",
+      "name": "CAW0::Soa::Capaonawc::QualityIssueManagement::deriveProblemSolvingItems",
+      "returnConst": "false",
+      "returnDescription": "ServiceData: <br /><br />Created Change CAPA.<br />Created Change CAPA Revision.<br />The return contains failures for any element in the input list are returned as a Partial Error in the ServiceData. The following partial errors may be returned:<br />233018&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Relation creation is not allowed.<br />233071&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Missing default workflow template preference is missing, or value is empty.<br />234024&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The &lt;object_name&gt; cannot be deirved for the following reason:",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Llist of CAW0Defect, CAW05Why objects to query the child data.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "parentList"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "int",
+              "qualifier": ""
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "Depth of the Tree structure to query the children.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "level"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "CAW0::Soa::Internal::Capaonawc::_2019_06::QualityIssueManagement::OutputChildrenResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp04.2.0",
+      "description": "Operation get children of list of objects CAW0Defect , CAW05Why with input number of level to retrieve the children.",
+      "id": "CAW0::Soa::Internal::Capaonawc::_2019_06::QualityIssueManagement::OutputChildrenResponse#CAW0::Soa::Capaonawc::QualityIssueManagement::getChildrenInfo#const,std::vector<Teamcenter::BusinessObject>,&$int",
+      "name": "CAW0::Soa::Capaonawc::QualityIssueManagement::getChildrenInfo",
+      "returnConst": "false",
+      "returnDescription": "Structure of Map of &lt; Teamcenter::BusinessObject, std::vector&lt; Teamcenter::BusinessObject &gt;  of CAW0Defect and CAW05Why objects as key and list of CAW0Defect, CAW05Why, CAW0Why objects as their children and service data contains any partial errors which may have been encountered during processing. All business objects which are returned are added to the service data's plain objects list as well.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "CAW0::Soa::Internal::Capaonawc::_2019_06::QualityIssueManagement::InputMarkAsRootCauseData",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The list of InputMarkAsRootCauseData objects to mark as root cause for the problem occurred for C2CapaRevision, property name to set on CAW0Defect object and relation name to create between C2CapaRevision object and CAW0Defect object.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "CAW0::Soa::Internal::Capaonawc::_2019_06::QualityIssueManagement::OutputMarkAsRootCauseData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp04.2.0",
+      "description": "This operation marks the input Object CAW0Defect as root cause by setting the property caw0rootcause as true and create relation between CAW0Defect Object as secondary to C2CapaRevision object as primary.<br />If any other CAW0Defect objects are already present as root cause for C2CapaRevision this operation will set its caw0rootcause property as false and delete the relationship between exiting root cause CAW0Defect object and C2CapaRevision.",
+      "id": "CAW0::Soa::Internal::Capaonawc::_2019_06::QualityIssueManagement::OutputMarkAsRootCauseData#CAW0::Soa::Capaonawc::QualityIssueManagement::markObjectAsRootCause#const,std::vector<CAW0::Soa::Internal::Capaonawc::_2019_06::QualityIssueManagement::InputMarkAsRootCauseData>,&",
+      "name": "CAW0::Soa::Capaonawc::QualityIssueManagement::markObjectAsRootCause",
+      "returnConst": "false",
+      "returnDescription": "A list of CAW0Defect objects marked as root cause successfully, list of CAW0Defect object to failed mark as root cause All business objects which are returned are added to the service data's plain objects list as well.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    }
+  ],
+  "ServiceInterface": [
+    {
+      "createRelease": "Awp04.2.0",
+      "dependencies": "",
+      "description": "Service for CAPA defect Management. It consists different operation to get data for Defect, 5Why and Ishikawa",
+      "libraryName": "CAW0SoaCapaonawc",
+      "name": "QualityIssueManagement",
+      "namespace": "CAW0::Soa::Capaonawc",
+      "serviceLibraryRef": ""
+    }
+  ],
+  "Struct": [
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "The context Object. C2CapaRevision, C2IssueRevision, C2IssueComplaintRevision, and C2IssueNonConfRevision types are supported.",
+          "name": "contextObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The Dataset type to create dataset. MSExcel, MSExcelX, and HTML types are supported.",
+          "name": "datasetTypeToCreate"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The relation name C2CapaReports to create between context object and newly created Dataset.",
+          "name": "relationName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "FMS file ticket to download the file to use as named reference in new Dataset.",
+          "name": "fmsFileTicket"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Dataset type to remove from current user's Newstuff folder created by generateReport operation.",
+          "name": "datasetTypeToRemove"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Named reference type name to import in new Dataset as named reference.",
+          "name": "namedReferenceType"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Input structure to create and attach reports to Context Object.",
+      "isPublished": "false",
+      "name": "AttachReportsInput",
+      "namespace": "CAW0::Soa::Internal::Capaonawc::_2020_05::QualityIssueManagement",
+      "scope": "CAW0::Soa::Capaonawc::QualityIssueManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "Dataset created based on input provided and attached to context object.",
+          "name": "dataset"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "The service data contains any partial errors which may have been encountered during processing. All business objects which are returned are added to the serviceData's plain objects list.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "It consists a structure of Created Dataset and service data.",
+      "isPublished": "false",
+      "name": "AttachReportsResponse",
+      "namespace": "CAW0::Soa::Internal::Capaonawc::_2020_05::QualityIssueManagement",
+      "scope": "CAW0::Soa::Capaonawc::QualityIssueManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "The related object to be deep copied. Supported object type are CAW0Defect, Qam0QualityAction, ItemRevision, and Dataset.",
+          "name": "attachedObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement::PropertyValueMap"
+            }
+          ],
+          "description": "A map (string, list of string) of property name (as key) and a list of property values (as value) in string format will be deep copied from Source. C2IssueRevision, C2IssueComplaintRevision or C2IssueNonConfRevision on Derive to C2CapaRevision. Deep copy properties data provided additionally from Client.<br />It can contain the following key value pair for map:<br />&#61607;&nbsp;&nbsp;&nbsp;&nbsp;Key &ldquo;isRequired&rdquo; and supported values are true and false. If true, the copy action cannot be modified. If false, the copy action can be changed different action by the user.<br />&#61607;&nbsp;&nbsp;&nbsp;&nbsp;Key &ldquo;propertyName&rdquo; and supported value is relation name or reference property for which DeepCopy rule is configured. Ex. CPA0ProblemDescription<br />&#61607;&nbsp;&nbsp;&nbsp;&nbsp;Key &ldquo;copyAction&rdquo; and supported values are &ldquo;NoCopy&rdquo;, &ldquo;CopyAsReference&rdquo;, &ldquo;CopyAsObject&rdquo; and &ldquo;Select&rdquo;.<br />&#61607;&nbsp;&nbsp;&nbsp;&nbsp;Key &ldquo;isTargetPrimary&rdquo; and supported values are true and false. If true, the target object is processed as primary. If false, it is processed as a secondary object.<br />&#61607;&nbsp;&nbsp;&nbsp;&nbsp;Key &ldquo;copy_relations&rdquo; and supported value are true and false. If true, the custom properties on the source relation object are copied over to the newly-created relation. If false, custom properties are not copied.<br />&#61607;&nbsp;&nbsp;&nbsp;&nbsp;Key &ldquo;secondaryIsDuplicated&rdquo; and supported values are true and false. If true, the attached object already appears in deep copy data. If false, attached object is not appeared in deep copy data.<br />&#61607;&nbsp;&nbsp;&nbsp;&nbsp;Key &ldquo;propertyType&rdquo; and supported values are &ldquo;Relation&rdquo; and &ldquo;Reference&rdquo;. If Relation, it represents Relation type property. If Reference, it represents Reference property.",
+          "name": "deepCopyProperties"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Operation input type name   of the operation being performed. Supported operation are SaveAs and Create operation.  For SaveAs, input type string is concatenation of &lt;object_type&gt; and &ldquo;SvAI&rdquo; string. Ex. CAW0DefectSvAI. For Create, input type string is concatenation of &lt;object_type&gt; and &ldquo;CreI&rdquo; string. Ex. CAW0DefectCreI.",
+          "name": "operationInputType"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement::DeepCopyData"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of DeepCopyData for the objects of the relation or reference property objects of the attached object.",
+          "name": "childDeepCopyData"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement::PropertyValueMap"
+            }
+          ],
+          "description": "A map (string, list of strings) of property names and values of attached object. These property values will be applied on propagated objects. The calling client is responsible for converting the different property types (int, float, date. etc) to a string using the appropriate toXXXString functions (i.e. toDateString) in the SOA client framework Property class.",
+          "name": "inputProperties"
+        }
+      ],
+      "createRelease": "Awp05.1.0",
+      "description": "DeepCopyData stores the deep copy information that will be copied via derive operation. It also stores the nested deep copy data at the next level.",
+      "isPublished": "false",
+      "name": "DeepCopyData",
+      "namespace": "CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement",
+      "scope": "CAW0::Soa::Capaonawc::QualityIssueManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "Source Object carry forward to derived C2CapaRevision.",
+          "name": "targetObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Target relation to be created between derived C2CapaRevision  and input CAW0Defect object. Relation is CPA0ProblemDescription.",
+          "name": "targetRelation"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "Indicates whether the CAW0Defect object or a new save as copy of CAW0Defect object will be attached to new derived C2CapaRevision  object with target CPA0ProblemDescription relation. If true, a new save as copy of CAW0Defect object will be attached to new derived C2CapaRevision object. If false, CAW0Defect object will be attached to new derived C2CapaRevision object.",
+          "name": "targetAsDuplicate"
+        }
+      ],
+      "createRelease": "Awp05.1.0",
+      "description": "Deep copy option to relate Input CAW0Defect to Target derived C2CapaRevision with input relation. Example, to relate input Symptom Defect CAW0Defect to Target Derive C2CapaRevision with input Relation CPA0ProblemDescription. Structure provide Boolean flag targetAsDuplicate, which provide information how the input CAW0Defect  is related to Target derived C2CapaRevision object.<br />If true, input CAW0Defect object is Save-As to new CAW0Defect object. New Saved CAW0Defect is attached to derived C2CapaRevision  with input relation.<br />If false, input CAW0Defect  is attached to Target derived C2CapaRevision with input CPA0ProblemDescription relation.",
+      "isPublished": "false",
+      "name": "DeepCopyOption",
+      "namespace": "CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement",
+      "scope": "CAW0::Soa::Capaonawc::QualityIssueManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of C2IssueRevision, C2IssueComplaintRevision or C2IssueNonConfRevision objects to be derived.",
+          "name": "selectedObjects"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement::DerivePropertyValueInput"
+            }
+          ],
+          "description": "A map (string, list of strings) of property names and values. The calling client is responsible for converting the different property types (int, float, date. etc) to a string using the appropriate toXXXString functions (i.e. toDateString) in the SOA client framework Property class.",
+          "name": "derivePropertyData"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement::DeepCopyData"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of DeepCopyData to be propagated to the derived CAPA Revision objects.",
+          "name": "deepCopyDatas"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "If true, the derived C2CapaRevision object is submitted  to designated workflow template; otherwise, not.",
+          "name": "submitToWorkflow"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The workflow template name to be executed; if empty, the default workflow template will be used.",
+          "name": "workflowTemplateName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "If true, the relations are propagated in Deep Copy Rule; otherwise, will not propagate the relations.",
+          "name": "propagateRelation"
+        }
+      ],
+      "createRelease": "Awp05.1.0",
+      "description": "Structure that contains multiple C2IssueRevision, C2IssueComplaintRevision or C2IssueNonConfRevision  object to be derived, a structure containing property name and values to be propagated, Deep Copy Data, a flag to automatically submit to workflow or not, a workflow template name and a flag to propagate relations or not.",
+      "isPublished": "false",
+      "name": "DeriveInput",
+      "namespace": "CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement",
+      "scope": "CAW0::Soa::Capaonawc::QualityIssueManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The business object type name to which the properties belong. E.g. C2Capa. ChangeRequest",
+          "name": "boName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement::PropertyValueMap"
+            }
+          ],
+          "description": "This is map (string, string) of property names (as key) and property values (as value) in string format.",
+          "name": "propertyNameValues"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement::DerivePropertyValueInputMap"
+            }
+          ],
+          "description": "A map (string, list of  DerivePropertyValueInput) of derive property value input with a string (as key) and a list of derive property values input consisting of a business object in string format, a property name values map and compound input of derive property values.",
+          "name": "compoundDeriveInput"
+        }
+      ],
+      "createRelease": "Awp05.1.0",
+      "description": "This structure consists of Business Object type e.g. C2Capa in string format. Property name and values in map and compound derive input. The business object is a simple string. The property name and values are a list of strings to support both single valued and multi valued properties of types.",
+      "isPublished": "false",
+      "name": "DerivePropertyValueInput",
+      "namespace": "CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement",
+      "scope": "CAW0::Soa::Capaonawc::QualityIssueManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Unique ID is used to identify return data elements and partial errors associated with this input structure.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Boolean property name that is set to &ldquo;true&rdquo; on CAW0Defect object after marking it as root cause.",
+          "name": "propertyName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Relation  Root Cause   to create between input C2CapaRevision and new root cause CAW0Defect Object.",
+          "name": "relationName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "The C2CapaRevision object for which root cause is set.",
+          "name": "itemRevision"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "The CAW0Defect object to set as root cause object.",
+          "name": "rootCauseObject"
+        }
+      ],
+      "createRelease": "Awp04.2.0",
+      "description": "The Input structure define the objects to be mark as root cause for the  problem occurred.",
+      "isPublished": "false",
+      "name": "InputMarkAsRootCauseData",
+      "namespace": "CAW0::Soa::Internal::Capaonawc::_2019_06::QualityIssueManagement",
+      "scope": "CAW0::Soa::Capaonawc::QualityIssueManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "The service data contains any partial errors which may have been encountered during processing. All business objects which are returned are added to the serviceData's plain objects list.",
+          "name": "serviceData"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "CAW0::Soa::Internal::Capaonawc::_2019_06::QualityIssueManagement::ParentChildrenMap"
+            }
+          ],
+          "description": "Map of &lt; Teamcenter::BusinessObject, std::vector&lt; Teamcenter::BusinessObject &gt;  of parent CAW0Defect and CAW05Why objects as key and list of CAW0Defect, CAW05Why, CAW0Why objects as their children",
+          "name": "parentChildren"
+        }
+      ],
+      "createRelease": "Awp04.2.0",
+      "description": "Output structure for the getChildrenInfo operation",
+      "isPublished": "false",
+      "name": "OutputChildrenResponse",
+      "namespace": "CAW0::Soa::Internal::Capaonawc::_2019_06::QualityIssueManagement",
+      "scope": "CAW0::Soa::Capaonawc::QualityIssueManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "The service data contains any partial errors which may have been encountered during processing. All business objects which are returned are added to the serviceData's plain objects list.",
+          "name": "serviceData"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of CAW0Defect object successfully mark as root cause.",
+          "name": "successfullyMarkedObjects"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of CAW0Defect object failed to mark as root cause.",
+          "name": "failedToMarkObjects"
+        }
+      ],
+      "createRelease": "Awp04.2.0",
+      "description": "Output response Structure of Mark as Root Cause Operation",
+      "isPublished": "false",
+      "name": "OutputMarkAsRootCauseData",
+      "namespace": "CAW0::Soa::Internal::Capaonawc::_2019_06::QualityIssueManagement",
+      "scope": "CAW0::Soa::Capaonawc::QualityIssueManagement"
+    }
+  ],
+  "TcVersion": "tc13000.0.0",
+  "Typedef": [
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement::DerivePropertyValueInput"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp05.1.0",
+      "description": "This map is of derive property value input with a string (as key) and a list of derive property values input consisting of a business object in string format, a property name values map and compound input of derive property values.",
+      "isPublished": "false",
+      "name": "DerivePropertyValueInputMap",
+      "namespace": "CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement",
+      "scope": "CAW0::Soa::Capaonawc::QualityIssueManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp04.2.0",
+      "description": "Map &lt;Teamcenter::BusinessObject, std::vector&lt; Teamcenter::BusinessObject &gt; &gt; datatype to store parent CAW0Defect, CAW05Why as key and list of secondary  CAW05Why, CAW0Defect, CAW0Why objects.",
+      "isPublished": "false",
+      "name": "ParentChildrenMap",
+      "namespace": "CAW0::Soa::Internal::Capaonawc::_2019_06::QualityIssueManagement",
+      "scope": "CAW0::Soa::Capaonawc::QualityIssueManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp05.1.0",
+      "description": "This map is of property name (as key) and property values (as value) in string format. Each value is a list of strings to support both single valued and multi valued properties of types. The calling client is responsible for converting the different property types (like integer, double, date, etc) to a string using the appropriate to&lt; type &gt;String function (e.g. toIntString and toDateString) in the client framework's Property class.",
+      "isPublished": "false",
+      "name": "PropertyValueMap",
+      "namespace": "CAW0::Soa::Internal::Capaonawc::_2020_12::QualityIssueManagement",
+      "scope": "CAW0::Soa::Capaonawc::QualityIssueManagement"
+    }
+  ],
+  "xmlns": "http://teamcenter.com/BusinessModel/TcBusinessData"
+}

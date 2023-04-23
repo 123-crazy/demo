@@ -1,0 +1,16 @@
+<aw-command-panel caption="创建RFQ对象">
+    <aw-panel-header>
+    </aw-panel-header>
+    <aw-panel-body name="commandPanelForm">
+      <!-- <aw-numeric prop="data.id"></aw-numeric> -->
+      <aw-textbox prop="data.id"></aw-textbox>
+      <aw-textbox prop="data.revision"></aw-textbox>
+      <aw-textarea prop="data.name"></aw-textarea>
+    </aw-panel-body>
+    <aw-panel-footer>
+      <aw-button button-type="" enable-when="conditions.isEmpty" size="stretched" action="createObjects">
+        <aw-i18n>创建</aw-i18n>
+      </aw-button>
+    </aw-panel-footer>
+  </aw-command-panel>   
+  

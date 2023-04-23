@@ -1,0 +1,37 @@
+{
+    "schemaVersion": "1.0.0",
+    "workspaceId": "TcQualityManagementWorkspace",
+    "workspaceName": {
+        "source": "/i18n/QualityActionMgmtMessages",
+        "key": "tcQualityManagementWorkspaceName"
+    },
+    "workspaceType": "Exclusive",
+    "includeInSolutions": [
+        "TcAW"
+    ],
+    "defaultPage": "showHome",
+    "availablePages": [
+        "showHome",
+        "showPreferences",
+        "showQADashboard",
+        "showReport",
+        "com_siemens_splm_clientfx_tcui_xrt_showObject",
+        "teamcenter_search_advancedSearch",
+        "teamcenter_search_savedSearch",
+        "teamcenter_search_search",
+        "users",
+        "showChanges",
+        "showDraftQA",
+        "showInProgressQA",
+        "showCompletedQA",
+        "showTemplateQA"
+    ],
+    "excludedCommands": [
+       "Awp0GoInboxWithoutBubble",
+       "Awp0Discussions",
+       "Awp0ShowMyActiveFolder",
+       "Awp0GoSchedules",
+       "Awp0GoScheduleTasks",
+       "Awp0GoReports"
+    ]
+}

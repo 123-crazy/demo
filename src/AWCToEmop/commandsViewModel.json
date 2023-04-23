@@ -1,0 +1,53 @@
+{
+    "commands": {
+        "gotoEmop": {
+            "iconId": "typeQuote",
+            "title": "{{i18n.gotoEmopTitle}}",
+            "description": "{{i18n.gotoEmopDescription}}"
+        }
+    },
+    "commandHandlers": {
+        "gotoEmopHandler": {
+            "id": "gotoEmop",
+            "action": "activategotoEmop",
+            "activeWhen": true,
+            "visibleWhen": {
+                "condition": "conditions.objectIsBomline"
+            }
+        }
+    },
+    "commandPlacements": {
+        "gotoEmopaw_rightWall": {
+            "id": "gotoEmop",
+            "uiAnchor": "aw_rightWall",
+            "priority": 100
+        }
+    },
+    "actions": {
+        "activategotoEmop": {
+            "actionType": "JSFunction",
+            "method": "alert",
+            "deps": "js/gotoEmopService",
+            "inputData": {
+                "uid":"{{ctx.selected.props.awb0Archetype.dbValues[0]}}",
+                "useruid":"{{ctx.user.uid}}"
+            }
+        }
+    },
+    "conditions": {
+        "objectIsSelected": {
+            "expression": "ctx.selected"
+        },
+        "objectIsBomline": {
+            "expression": "ctx.selected.type=='Awb0DesignElement'"
+        }
+    },
+    "i18n": {
+        "gotoEmopTitle": [
+            "AWCToEmopMessages"
+        ],
+        "gotoEmopDescription": [
+            "AWCToEmopMessages"
+        ]
+    }
+}

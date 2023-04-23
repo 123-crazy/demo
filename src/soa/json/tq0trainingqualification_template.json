@@ -1,0 +1,233 @@
+{
+  "BusinessObjectInterface": [
+    {
+      "createRelease": "Awp05.1.0",
+      "description": "Interface Name for Business Object Tq0AssignedQUDataProvider",
+      "libraryName": "Tq0trainingqualification",
+      "name": "Tq0AssignedQUDataProvider",
+      "namespace": "tq0trainingqualification",
+      "primaryInterface": "true",
+      "typeName": "Tq0AssignedQUDataProvider"
+    },
+    {
+      "createRelease": "Awp05.1.0",
+      "description": "Interface Name for Business Object Tq0QualificationProfile",
+      "libraryName": "Tq0trainingqualification",
+      "name": "Tq0QualificationProfile",
+      "namespace": "tq0trainingqualification",
+      "primaryInterface": "true",
+      "typeName": "Tq0QualificationProfile"
+    },
+    {
+      "createRelease": "Awp05.1.0",
+      "description": "Interface Name for Business Object Tq0QualificationRecord",
+      "libraryName": "Tq0trainingqualification",
+      "name": "Tq0QualificationRecord",
+      "namespace": "tq0trainingqualification",
+      "primaryInterface": "true",
+      "typeName": "Tq0QualificationRecord"
+    },
+    {
+      "createRelease": "Awp05.1.0",
+      "description": "Interface Name for Business Object Tq0QualificationUnit",
+      "libraryName": "Tq0trainingqualification",
+      "name": "Tq0QualificationUnit",
+      "namespace": "tq0trainingqualification",
+      "primaryInterface": "true",
+      "typeName": "Tq0QualificationUnit"
+    }
+  ],
+  "Date": "Tue Aug 25 08:56:35 AM 2020",
+  "Library": [
+    {
+      "createRelease": "Awp05.1.0",
+      "description": "Active Workspace Service Library for Training and Qualification",
+      "isThirdParty": "false",
+      "name": "Tq0SoaTrainingQualificationAw",
+      "namespace": "Tq0::Soa::TrainingQualificationAw",
+      "serviceLibrary": "true"
+    },
+    {
+      "DependentOn": [
+        {
+          "name": "metaframework"
+        },
+        {
+          "name": "sa"
+        },
+        {
+          "name": "tccore"
+        },
+        {
+          "name": "tc"
+        },
+        {
+          "name": "cxpom"
+        },
+        {
+          "name": "awp0aws2"
+        }
+      ],
+      "createRelease": "Awp05.1.0",
+      "description": "Library for Training and Qualification",
+      "isThirdParty": "false",
+      "name": "Tq0trainingqualification",
+      "namespace": "",
+      "serviceLibrary": "false"
+    }
+  ],
+  "Operation": [
+    {
+      "ParameterInfo": [
+        {
+          "description": "This operation creates Tq0QualificationRecord objects when one or more Tq0QualificationUnit objects (Certifications) are assigned to one or more Tq0QualificationProfile objects (Users, Equipments or Gauges) or vice versa.<br /><br />While creation of Tq0QualificationRecord objects, some of the property values from Tq0QualificationUnit objects and Tq0QualificationProfile objects are copied, some of the property values are computed and set on to the Tq0QualificationRecord objects.",
+          "parameterName": "assignQualificationInputs"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Tq0TrainingQualification",
+      "createRelease": "Awp05.1.0",
+      "dependencies": "",
+      "description": "This operation creates Tq0QualificationRecord objects when one or more Tq0QualificationUnit objects (Certifications) are assigned to one or more Tq0QualificationProfile objects (Users, Equipments or Gauges) or vice versa.<br /><br />While creation of Tq0QualificationRecord objects, some of the property values from Tq0QualificationUnit objects and Tq0QualificationProfile objects are copied, some of the property values are computed and set on to the Tq0QualificationRecord objects.",
+      "exceptionCondition": "",
+      "id": "assignQualificationUnits#const,std::vector<Tq0::Soa::Internal::TrainingQualificationAw::_2020_12::TrainingQualification::AssignQualificationInput>,&",
+      "interface": "Tq0::Soa::TrainingQualificationAw::TrainingQualification",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "assignQualificationUnits",
+      "opTemplate": "Tq0::Soa::Internal::TrainingQualificationAw::_2020_12::TrainingQualification::AssignQualificationResponse#Tq0::Soa::TrainingQualificationAw::TrainingQualification::assignQualificationUnits#const,std::vector<Tq0::Soa::Internal::TrainingQualificationAw::_2020_12::TrainingQualification::AssignQualificationInput>,&",
+      "returnDescription": "Output assignQualificationResponse contains, a list of (Tq0QualificationRecord) objects created by assignment operation. Service data is populated with any exceptions that occurred while performing the operation.<br /><br />Following partial errors may be returned:<br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;453001 Qualification Units is not valid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;453002 Qualification Profiles is not valid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;453003 Assignment already exists.",
+      "useCase": "Use Cases<br />1.Assign Multiple Qualification Units to Single Qualification Profile<br /><br />Example: A Boiler Installation Certification &amp; Welding Certification is assigned to John Smith.<br />In this case, couple of Qualification Records are created.<br /><br />2.Assign Single Qualification Unit to Multiple Qualification Profiles<br /><br />Example: A Motor Installation Certification is assigned to Henry Joe &amp; Kerry Hanselman.<br />In this case, couple of Qualification Records are created.<br /><br />3.Assign Multiple Qualification Units to Multiple Qualification Profiles<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />Example: A Solar Installation Certification &amp; Lathe Machine Operator Certification is assigned to Harry Miller &amp; Catharine Brook. In this case, four Qualification Records are created."
+    }
+  ],
+  "OperationTemplate": [
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Tq0::Soa::Internal::TrainingQualificationAw::_2020_12::TrainingQualification::AssignQualificationInput",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "This operation creates Tq0QualificationRecord objects when one or more Tq0QualificationUnit objects (Certifications) are assigned to one or more Tq0QualificationProfile objects (Users, Equipments or Gauges) or vice versa.<br /><br />While creation of Tq0QualificationRecord objects, some of the property values from Tq0QualificationUnit objects and Tq0QualificationProfile objects are copied, some of the property values are computed and set on to the Tq0QualificationRecord objects.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "assignQualificationInputs"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Tq0::Soa::Internal::TrainingQualificationAw::_2020_12::TrainingQualification::AssignQualificationResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.1.0",
+      "description": "This operation creates Tq0QualificationRecord objects when one or more Tq0QualificationUnit objects (Certifications) are assigned to one or more Tq0QualificationProfile objects (Users, Equipments or Gauges) or vice versa.<br /><br />While creation of Tq0QualificationRecord objects, some of the property values from Tq0QualificationUnit objects and Tq0QualificationProfile objects are copied, some of the property values are computed and set on to the Tq0QualificationRecord objects.",
+      "id": "Tq0::Soa::Internal::TrainingQualificationAw::_2020_12::TrainingQualification::AssignQualificationResponse#Tq0::Soa::TrainingQualificationAw::TrainingQualification::assignQualificationUnits#const,std::vector<Tq0::Soa::Internal::TrainingQualificationAw::_2020_12::TrainingQualification::AssignQualificationInput>,&",
+      "name": "Tq0::Soa::TrainingQualificationAw::TrainingQualification::assignQualificationUnits",
+      "returnConst": "false",
+      "returnDescription": "Output assignQualificationResponse contains, a list of (Tq0QualificationRecord) objects created by assignment operation. Service data is populated with any exceptions that occurred while performing the operation.<br /><br />Following partial errors may be returned:<br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;453001 Qualification Units is not valid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;453002 Qualification Profiles is not valid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;453003 Assignment already exists.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    }
+  ],
+  "ServiceInterface": [
+    {
+      "createRelease": "Awp05.1.0",
+      "dependencies": "",
+      "description": "This service contains the operation related to Assign Qualification Units to a Qualification Profies. This operation will performs necessary validation and create a Qualification Records.",
+      "libraryName": "Tq0SoaTrainingQualificationAw",
+      "name": "TrainingQualification",
+      "namespace": "Tq0::Soa::TrainingQualificationAw",
+      "serviceLibraryRef": ""
+    }
+  ],
+  "Struct": [
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of Qualification Units (Tq0QualificationUnit)",
+          "name": "qualificationUnits"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of Qualification Profiles (Tq0QualificationProfile)",
+          "name": "qualificationProfiles"
+        }
+      ],
+      "createRelease": "Awp05.1.0",
+      "description": "Input structure for assignment operation contains list of Tq0QualificationProfile objects and list of Tq0QualificationUnit objects.",
+      "isPublished": "false",
+      "name": "AssignQualificationInput",
+      "namespace": "Tq0::Soa::Internal::TrainingQualificationAw::_2020_12::TrainingQualification",
+      "scope": "Tq0::Soa::TrainingQualificationAw::TrainingQualification"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of Tq0QualificationRecord  objects created by assignment operation.",
+          "name": "qualificationRecords"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Contains any exceptions that occurred while performing the operation.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "Awp05.1.0",
+      "description": "Output assignQualificationResponse contains, a list of (Tq0QualificationRecord) objects created by assignment operation. Service data is populated with any exceptions that occurred while performing the operation.",
+      "isPublished": "false",
+      "name": "AssignQualificationResponse",
+      "namespace": "Tq0::Soa::Internal::TrainingQualificationAw::_2020_12::TrainingQualification",
+      "scope": "Tq0::Soa::TrainingQualificationAw::TrainingQualification"
+    }
+  ],
+  "TcVersion": "tc13000.0.0",
+  "xmlns": "http://teamcenter.com/BusinessModel/TcBusinessData"
+}

@@ -1,0 +1,5 @@
+{
+    "name": "supplier",
+    "description": "This is the supplier module",
+    "skipTest": true
+}

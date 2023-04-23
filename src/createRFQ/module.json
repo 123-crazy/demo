@@ -1,0 +1,5 @@
+{
+    "name": "createRFQ",
+    "description": "This is the createRFQ module",
+    "skipTest": true
+}

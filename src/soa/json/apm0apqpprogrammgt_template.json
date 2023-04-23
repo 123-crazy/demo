@@ -1,0 +1,286 @@
+{
+  "BusinessObjectInterface": [
+    {
+      "createRelease": "Awp04.3.0",
+      "description": "Interface Name for Business Object Apm0ChecklistQQualityActRel",
+      "libraryName": "Apm0apqpprogrammgt",
+      "name": "Apm0ChecklistQQualityActRel",
+      "namespace": "apm0apqpprogrammgt",
+      "primaryInterface": "true",
+      "typeName": "Apm0ChecklistQQualityActRel"
+    },
+    {
+      "createRelease": "Awp04.3.0",
+      "description": "Interface Name for Business Object Apm0RYG",
+      "libraryName": "Apm0apqpprogrammgt",
+      "name": "Apm0RYG",
+      "namespace": "apm0apqpprogrammgt",
+      "primaryInterface": "true",
+      "typeName": "Apm0RYG"
+    }
+  ],
+  "Date": "Tue Jun 16 02:25:28 PM 2020",
+  "Library": [
+    {
+      "createRelease": "Awp05.1.0",
+      "description": "Active workspace service library for APQP.",
+      "isThirdParty": "false",
+      "name": "Apm0SoaApqpProgramMgtAw",
+      "namespace": "Apm0::Soa::ApqpProgramMgtAw",
+      "serviceLibrary": "true"
+    },
+    {
+      "DependentOn": [
+        {
+          "name": "metaframework"
+        },
+        {
+          "name": "tccore"
+        },
+        {
+          "name": "tc"
+        },
+        {
+          "name": "cxpom"
+        }
+      ],
+      "createRelease": "Awp04.1.0",
+      "description": "APQP Program Management Library.",
+      "isThirdParty": "false",
+      "name": "Apm0apqpprogrammgt",
+      "namespace": "",
+      "serviceLibrary": "false"
+    }
+  ],
+  "Operation": [
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of structures containing information to reset manual assessment.",
+          "parameterName": "resetAssessmentInput"
+        },
+        {
+          "description": "If true, the operation is performed in background mode in a separate asynchronous server session; otherwise, perform the operation synchronously.",
+          "parameterName": "runInBackground"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Apm0apqpprogrammgt",
+      "createRelease": "Awp05.1.0",
+      "dependencies": "",
+      "description": "This operation resets the manual assessment for the Apm0RYG object based on the option provided as the assessment input. In case of background mode, this operation files an asynchronous request to reset manual assessment and releases the client immediately so that the user can perform other operation.",
+      "exceptionCondition": "",
+      "id": "resetManualAssessment#const,std::vector<Apm0::Soa::Internal::ApqpProgramMgtAw::_2020_12::ApqpProgramMgt::ResetManualAssessmentInput>,&$bool",
+      "interface": "Apm0::Soa::ApqpProgramMgtAw::ApqpProgramMgt",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "resetManualAssessment",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Apm0::Soa::ApqpProgramMgtAw::ApqpProgramMgt::resetManualAssessment#const,std::vector<Apm0::Soa::Internal::ApqpProgramMgtAw::_2020_12::ApqpProgramMgt::ResetManualAssessmentInput>,&$bool",
+      "returnDescription": "The target objects for which reset manual assessment is performed are returned in the updated list of the ServiceData. The ServiceData will be empty in case of asynchronous mode.<br /><br />Following partial error may be returned:<br />445001 The context object is not a Apm0RYG type.<br />445002 The reset value is not valid.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of structures containing information to reset manual assessment.",
+          "parameterName": "resetAssessmentInput"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Apm0apqpprogrammgt",
+      "createRelease": "Awp05.1.0",
+      "dependencies": "",
+      "description": "This operation resets the manual assessment for the Apm0RYG object based on the option provided as the assessment input. This operation runs asynchronously in its own server in the background.",
+      "exceptionCondition": "",
+      "id": "resetManualAssessmentAsync#const,std::vector<Apm0::Soa::Internal::ApqpProgramMgtAw::_2020_12::ApqpProgramMgt::ResetManualAssessmentInput>,&",
+      "interface": "Apm0::Soa::ApqpProgramMgtAw::ApqpProgramMgt",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "resetManualAssessmentAsync",
+      "opTemplate": "void#Apm0::Soa::ApqpProgramMgtAw::ApqpProgramMgt::resetManualAssessmentAsync#const,std::vector<Apm0::Soa::Internal::ApqpProgramMgtAw::_2020_12::ApqpProgramMgt::ResetManualAssessmentInput>,&",
+      "returnDescription": "None.",
+      "useCase": ""
+    }
+  ],
+  "OperationTemplate": [
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Apm0::Soa::Internal::ApqpProgramMgtAw::_2020_12::ApqpProgramMgt::ResetManualAssessmentInput",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of structures containing information to reset manual assessment.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "resetAssessmentInput"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "bool",
+              "qualifier": ""
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "If true, the operation is performed in background mode in a separate asynchronous server session; otherwise, perform the operation synchronously.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "runInBackground"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.1.0",
+      "description": "This operation resets the manual assessment for the Apm0RYG object based on the option provided as the assessment input. In case of background mode, this operation files an asynchronous request to reset manual assessment and releases the client immediately so that the user can perform other operation.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Apm0::Soa::ApqpProgramMgtAw::ApqpProgramMgt::resetManualAssessment#const,std::vector<Apm0::Soa::Internal::ApqpProgramMgtAw::_2020_12::ApqpProgramMgt::ResetManualAssessmentInput>,&$bool",
+      "name": "Apm0::Soa::ApqpProgramMgtAw::ApqpProgramMgt::resetManualAssessment",
+      "returnConst": "false",
+      "returnDescription": "The target objects for which reset manual assessment is performed are returned in the updated list of the ServiceData. The ServiceData will be empty in case of asynchronous mode.<br /><br />Following partial error may be returned:<br />445001 The context object is not a Apm0RYG type.<br />445002 The reset value is not valid.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Apm0::Soa::Internal::ApqpProgramMgtAw::_2020_12::ApqpProgramMgt::ResetManualAssessmentInput",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of structures containing information to reset manual assessment.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "resetAssessmentInput"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "void",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.1.0",
+      "description": "This operation resets the manual assessment for the Apm0RYG object based on the option provided as the assessment input. This operation runs asynchronously in its own server in the background.",
+      "id": "void#Apm0::Soa::ApqpProgramMgtAw::ApqpProgramMgt::resetManualAssessmentAsync#const,std::vector<Apm0::Soa::Internal::ApqpProgramMgtAw::_2020_12::ApqpProgramMgt::ResetManualAssessmentInput>,&",
+      "name": "Apm0::Soa::ApqpProgramMgtAw::ApqpProgramMgt::resetManualAssessmentAsync",
+      "returnConst": "false",
+      "returnDescription": "None.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    }
+  ],
+  "ServiceInterface": [
+    {
+      "createRelease": "Awp05.1.0",
+      "dependencies": "",
+      "description": "Service for APQP Program Management. It consists operation to reset manual assessment on RYG BO.",
+      "libraryName": "Apm0SoaApqpProgramMgtAw",
+      "name": "ApqpProgramMgt",
+      "namespace": "Apm0::Soa::ApqpProgramMgtAw",
+      "serviceLibraryRef": ""
+    }
+  ],
+  "Struct": [
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The name of key in Pair.",
+          "name": "keyName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The value of key in Pair.",
+          "name": "keyValue"
+        }
+      ],
+      "createRelease": "Awp05.1.0",
+      "description": "Structure containing a pair (string, string) of keyName and keyValue respectively.",
+      "isPublished": "false",
+      "name": "NameValueStringPair",
+      "namespace": "Apm0::Soa::Internal::ApqpProgramMgtAw::_2020_12::ApqpProgramMgt",
+      "scope": "Apm0::Soa::ApqpProgramMgtAw::ApqpProgramMgt"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "apm0apqpprogrammgt::Apm0RYG"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of Apm0RYG objects for which reset manual assessment will be performed.",
+          "name": "rygObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Apm0::Soa::Internal::ApqpProgramMgtAw::_2020_12::ApqpProgramMgt::NameValueStringPair"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of options for the reset manual assessment. <br />Key : resetType<br />Valid values are: RESET_ALL_CHILDREN/RESET_THIS_OBJECT_ONLY.<br /> (RESET_ALL_CHILDREN : Resets the assessment value of all children recursively; <br />  RESET_THIS_OBJECT_ONLY : Resets the assessment value of only the rygObject.)",
+          "name": "resetOptions"
+        }
+      ],
+      "createRelease": "Awp05.1.0",
+      "description": "The input information required to reset manual assessment for the selected object and its children.",
+      "isPublished": "false",
+      "name": "ResetManualAssessmentInput",
+      "namespace": "Apm0::Soa::Internal::ApqpProgramMgtAw::_2020_12::ApqpProgramMgt",
+      "scope": "Apm0::Soa::ApqpProgramMgtAw::ApqpProgramMgt"
+    }
+  ],
+  "TcVersion": "tc12000.0.0",
+  "xmlns": "http://teamcenter.com/BusinessModel/TcBusinessData"
+}

@@ -1,0 +1,620 @@
+{
+  "Date": "Wed Oct 03 05:31:38 PM 2018",
+  "Library": [
+    {
+      "createRelease": "Awp04.1.0",
+      "description": "SOA Library for characteristics manager",
+      "isThirdParty": "false",
+      "name": "Aqc0SoaCharManagerAW",
+      "namespace": "Aqc0::Soa::CharManagerAW",
+      "serviceLibrary": "true"
+    },
+    {
+      "DependentOn": [
+        {
+          "name": "metaframework"
+        },
+        {
+          "name": "tccore"
+        },
+        {
+          "name": "tc"
+        },
+        {
+          "name": "cxpom"
+        },
+        {
+          "name": "awp0aws2"
+        }
+      ],
+      "createRelease": "Awp04.1.0",
+      "description": "Quality Characteristic Manager LIbrary",
+      "isThirdParty": "false",
+      "name": "Aqc0qcmaw",
+      "namespace": "",
+      "serviceLibrary": "false"
+    }
+  ],
+  "Operation": [
+    {
+      "ParameterInfo": [
+        {
+          "description": "Input structure for version specification create input.",
+          "parameterName": "specificationInputs"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Aqc0qcmaw",
+      "createRelease": "Awp04.1.0",
+      "dependencies": "",
+      "description": "This operation creates  version of characteristics specification types like  <font face=\"courier\" height=\"10\">Attribute</font>, <font face=\"courier\" height=\"10\">Visual</font> and <font face=\"courier\" height=\"10\">Variable</font> with unique combination of attributes.",
+      "exceptionCondition": "",
+      "id": "createSpecificationVersion#const,std::vector<Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement::VersionSpecificationIn>,&",
+      "interface": "Aqc0::Soa::CharManagerAW::QualityManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "createSpecificationVersion",
+      "opTemplate": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement::VersionSpecificationResponse#Aqc0::Soa::CharManagerAW::QualityManagement::createSpecificationVersion#const,std::vector<Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement::VersionSpecificationIn>,&",
+      "returnDescription": "The list of new version of specifications.<br />Following error codes are returned in the <font face=\"courier\" height=\"10\">ServiceData</font>. <br /><ul><ul><li type=\"disc\"><b>394002</b>  A Characteristics Specification already exists with similar values in the Characteristics Group.</li></ul></ul>",
+      "useCase": " Create specification version from existing specification object with unique combination of Attributes. <br />Example: Consider Characteristics Group (<b>Qc0CharacteristicsGroup</b>) having name <font face=\"courier\" height=\"10\">InnerDiameter</font> has <font face=\"courier\" height=\"10\">specification1</font>(<b>Qc0VariableCharSpec</b>)  with attributes:<br />NominalValue : 20 <br />UOM : mm<br />UpperTolerance: 0.02<br />LowerTolerance: 0.02 <br />GroupReference: InnerDiameter<br /><br />User can create another version of specification <font face=\"courier\" height=\"10\">specification2</font>  (<b>Qc0VariableCharSpec</b>)with different set of unique combination of Attributes: <br />NominalValue : 20 <br />UOM : mm<br />UpperTolerance: 0.01<br />LowerTolerance: 0.01<br />GroupReference: InnerDiameter"
+    }
+  ],
+  "OperationTemplate": [
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement::VersionSpecificationIn",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Input structure for version specification create input.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "specificationInputs"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement::VersionSpecificationResponse",
+          "qualifier": ""
+        }
+      ],
+      "const": "false",
+      "createRelease": "Awp04.1.0",
+      "description": "This operation creates  version of characteristics specification types like  <font face=\"courier\" height=\"10\">Attribute</font>, <font face=\"courier\" height=\"10\">Visual</font> and <font face=\"courier\" height=\"10\">Variable</font> with unique combination of attributes.",
+      "id": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement::VersionSpecificationResponse#Aqc0::Soa::CharManagerAW::QualityManagement::createSpecificationVersion#const,std::vector<Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement::VersionSpecificationIn>,&",
+      "name": "Aqc0::Soa::CharManagerAW::QualityManagement::createSpecificationVersion",
+      "returnConst": "false",
+      "returnDescription": "The list of new version of specifications.<br />Following error codes are returned in the <font face=\"courier\" height=\"10\">ServiceData</font>. <br /><ul><ul><li type=\"disc\"><b>394002</b>  A Characteristics Specification already exists with similar values in the Characteristics Group.</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    }
+  ],
+  "ServiceInterface": [
+    {
+      "createRelease": "Awp04.1.0",
+      "dependencies": "",
+      "description": "This service contains the operation related to managing and perforning operations on different types of  Quality objects.",
+      "libraryName": "Aqc0SoaCharManagerAW",
+      "name": "QualityManagement",
+      "namespace": "Aqc0::Soa::CharManagerAW",
+      "serviceLibraryRef": ""
+    }
+  ],
+  "Struct": [
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement::StringMap"
+            }
+          ],
+          "description": "Map of string property names to values (string, string).",
+          "name": "stringProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement::StringVectorMap"
+            }
+          ],
+          "description": "Map of string array property names to values (string, list of strings).",
+          "name": "stringArrayProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement::TagMap"
+            }
+          ],
+          "description": "Map of BusinessObject property names to values (string, BusinessObject).",
+          "name": "tagProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement::TagVectorMap"
+            }
+          ],
+          "description": "Map of BusinessObject property names to values (string, vectorlist of business objects).",
+          "name": "tagArrayProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement::DoubleMap"
+            }
+          ],
+          "description": "Map of double property names to values (string, double).",
+          "name": "doubleProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement::DoubleVectorMap"
+            }
+          ],
+          "description": "Map of double array property names to values (string, vectorlist of double values).",
+          "name": "doubleArrayProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement::FloatMap"
+            }
+          ],
+          "description": "Map of float property names to values (string, float).",
+          "name": "floatProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement::FloatVectorMap"
+            }
+          ],
+          "description": "Map of float array property names to values (string, list of float values).",
+          "name": "floatArrayProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement::IntMap"
+            }
+          ],
+          "description": "Map of int property names to values (string, int).",
+          "name": "intProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement::IntVectorMap"
+            }
+          ],
+          "description": "Map of int array property names to values (string, vectorlist of integer values).",
+          "name": "intArrayProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement::BoolMap"
+            }
+          ],
+          "description": "Map of bool property names to values (string, bool).",
+          "name": "boolProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement::BoolVectorMap"
+            }
+          ],
+          "description": "Map of bool array property names to values(string, list of boolean values).",
+          "name": "boolArrayProps"
+        }
+      ],
+      "createRelease": "Awp04.1.0",
+      "description": "Data structure contains data for Specification creation.",
+      "isPublished": "false",
+      "name": "CreateIn",
+      "namespace": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement",
+      "scope": "Aqc0::Soa::CharManagerAW::QualityManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "A unique string supplied by the caller. This ID is used to identify return data elements and partial errors associated with this input structure.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "Specification  object (<b>Qc0MasterCharSpec</b>) from which version to be created.",
+          "name": "sourceSpecification"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement::CreateIn"
+            }
+          ],
+          "description": "List of new poperty and values to be set on new version of specification.",
+          "name": "data"
+        }
+      ],
+      "createRelease": "Awp04.1.0",
+      "description": "Input structure for creating version of specification (<b>Qc0MasterCharSpec</b>) from the existing specification.",
+      "isPublished": "false",
+      "name": "VersionSpecificationIn",
+      "namespace": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement",
+      "scope": "Aqc0::Soa::CharManagerAW::QualityManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The clientId from the input <font face=\"courier\" height=\"10\">VersionSpecificationIn</font> element. This value is unchanged from the input, and can be used to identify this response element with the corresponding input element.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "New version of specification object created.",
+          "name": "newSpecification"
+        }
+      ],
+      "createRelease": "Awp04.1.0",
+      "description": "The structure represents the output of the operation.",
+      "isPublished": "false",
+      "name": "VersionSpecificationOut",
+      "namespace": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement",
+      "scope": "Aqc0::Soa::CharManagerAW::QualityManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement::VersionSpecificationOut"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of versioned specification objects created.",
+          "name": "specificationsOutput"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Contains any exceptions that occurred while performing the operation.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "Awp04.1.0",
+      "description": "Output contains a list of versioned specification objects created from input specification objects with new unique set of attributes. Service data is populated with any exceptions that occurred while performing the operation.",
+      "isPublished": "false",
+      "name": "VersionSpecificationResponse",
+      "namespace": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement",
+      "scope": "Aqc0::Soa::CharManagerAW::QualityManagement"
+    }
+  ],
+  "TcVersion": "tc11000.2.0",
+  "Typedef": [
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "bool"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp04.1.0",
+      "description": "Map of bool property names to values.",
+      "isPublished": "false",
+      "name": "BoolMap",
+      "namespace": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement",
+      "scope": "Aqc0::Soa::CharManagerAW::QualityManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "bool"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp04.1.0",
+      "description": "Map of bool array property names to values.",
+      "isPublished": "false",
+      "name": "BoolVectorMap",
+      "namespace": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement",
+      "scope": "Aqc0::Soa::CharManagerAW::QualityManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp04.1.0",
+      "description": "Map of BusinessObject property names to values.",
+      "isPublished": "false",
+      "name": "TagMap",
+      "namespace": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement",
+      "scope": "Aqc0::Soa::CharManagerAW::QualityManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp04.1.0",
+      "description": "Map of BusinessObject property names to values.",
+      "isPublished": "false",
+      "name": "TagVectorMap",
+      "namespace": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement",
+      "scope": "Aqc0::Soa::CharManagerAW::QualityManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "double"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp04.1.0",
+      "description": "Map of double property names to values.",
+      "isPublished": "false",
+      "name": "DoubleMap",
+      "namespace": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement",
+      "scope": "Aqc0::Soa::CharManagerAW::QualityManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "double"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp04.1.0",
+      "description": "Map of double array property names to values.",
+      "isPublished": "false",
+      "name": "DoubleVectorMap",
+      "namespace": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement",
+      "scope": "Aqc0::Soa::CharManagerAW::QualityManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "float"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp04.1.0",
+      "description": "Map of float property names to values.",
+      "isPublished": "false",
+      "name": "FloatMap",
+      "namespace": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement",
+      "scope": "Aqc0::Soa::CharManagerAW::QualityManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "float"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp04.1.0",
+      "description": "Map of float array property names to values.",
+      "isPublished": "false",
+      "name": "FloatVectorMap",
+      "namespace": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement",
+      "scope": "Aqc0::Soa::CharManagerAW::QualityManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "int"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp04.1.0",
+      "description": "Map of int property names to values.",
+      "isPublished": "false",
+      "name": "IntMap",
+      "namespace": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement",
+      "scope": "Aqc0::Soa::CharManagerAW::QualityManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "int"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp04.1.0",
+      "description": "Map of int array property names to values.",
+      "isPublished": "false",
+      "name": "IntVectorMap",
+      "namespace": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement",
+      "scope": "Aqc0::Soa::CharManagerAW::QualityManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp04.1.0",
+      "description": "Map of string property names to values",
+      "isPublished": "false",
+      "name": "StringMap",
+      "namespace": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement",
+      "scope": "Aqc0::Soa::CharManagerAW::QualityManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp04.1.0",
+      "description": "Map of string array property names to values.",
+      "isPublished": "false",
+      "name": "StringVectorMap",
+      "namespace": "Aqc0::Soa::Internal::CharManagerAW::_2018_12::QualityManagement",
+      "scope": "Aqc0::Soa::CharManagerAW::QualityManagement"
+    }
+  ],
+  "xmlns": "http://teamcenter.com/BusinessModel/TcBusinessData"
+}

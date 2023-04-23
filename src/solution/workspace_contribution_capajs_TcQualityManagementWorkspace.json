@@ -1,0 +1,28 @@
+{
+    "schemaVersion": "1.0.0",
+    "workspaceId": "TcQualityManagementWorkspace",
+    "availablePages": [
+        "showProblemSolvingProcess",
+        "showInProgressPSP",
+        "showOverduePSP",
+        "showClosedPSP",
+        "showDashboardPSP",
+        "showQualityIssues",
+        "showInProgressQIM",
+        "showOverdueQIM",
+        "showClosedQIM",
+        "showDashboardQIM",
+        "showMyDashboard",
+        "showMyReports",
+        "showReport",
+        "showReportBuilderReports",
+        "qualityCenterMasterDataSummary",
+        "SystemEleSpecificationSubLocation",
+        "FailureSpecificationSubLocation",
+        "CharacteristicsLibrarySubLocation",
+        "ChecklistSpecificationSubLocation",
+        "FunctionSpecificationSubLocation",
+        "mySchedules",
+        "myScheduleTasksLocation"
+    ]
+}

@@ -1,0 +1,13 @@
+<aw-popup2>
+    <aw-panel-body>
+        <aw-textbox prop="data.newtext"></aw-textbox>
+        <aw-widget prop="data.listBox1"></aw-widget>
+        <aw-flex-row height="45f">
+            <aw-splm-table gridid="splmTableColumnFilters"></aw-splm-table>
+        </aw-flex-row>
+    </aw-panel-body>
+    <aw-panel-footer>
+        <aw-button button-type="base" action="closePopupWindow" size="auto">{{i18n.CancelText}}</aw-button>
+        <aw-button action="updateText" size="auto">{{i18n.change}}</aw-button>
+    </aw-panel-footer>
+</aw-popup2>

@@ -1,0 +1,55 @@
+{
+    "commands": {
+        "supplierCommand": {
+            "iconId": "cmdCreateImodel",
+            "title": "{{i18n.supplierCommandTitle}}",
+            "description": "{{i18n.supplierCommandDescription}}"
+        }
+    },
+    "commandHandlers": {
+        "supplierCommandHandler": {
+            "id": "supplierCommand",
+            "action": "activatesupplierCommand",
+            "activeWhen": true,
+            "visibleWhen": {
+                "condition": "conditions.true"
+            }
+        }
+    },
+    "commandPlacements": {
+        "supplierCommandaw_rightWall": {
+            "id": "supplierCommand",
+            "uiAnchor": "aw_rightWall",
+            "priority": 100
+        }
+    },
+    "actions": {
+        "activatesupplierCommand": {
+            "actionType": "JSFunction",
+            "method": "show",
+            "deps": "js/supplierCommandService",
+            "inputData": {
+                "data": {
+                    "declView": "supplier",
+                    "locals": {
+                        "caption": "{{i18n.updateValue}}"
+                    }
+                }
+            }
+        }
+    },
+    "conditions": {
+        "objectIsSelected": {
+            "expression": "ctx.selected"
+        }
+    },
+    "i18n": {
+        "supplierCommandTitle": [
+            "supplierMessages"
+        ],
+        "supplierCommandDescription": [
+            "supplierMessages"
+        ],
+        "updateValue": "测试弹窗"
+    }
+}

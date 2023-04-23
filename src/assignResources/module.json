@@ -1,0 +1,5 @@
+{
+    "name": "assignResources",
+    "description": "This is the assignResources module",
+    "skipTest": true
+}

@@ -1,0 +1,292 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-textbox.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-popup2.directive",
+        "js/aw-widget.directive"
+    ],
+    "actions": {
+        "reveal": {
+            "actionType": "dataProvider",
+            "method": "dataProviderLake"
+        },
+        "loadData": {
+            "actionType": "JSFunctionAsync",
+            "method": "getAvailablePages",
+            "outputData": {
+                "pageCount": "pageCount",
+                "pageList": "pageList",
+                "ctx.search.totalFound": "pageCount"
+            },
+            "deps": "js/mathUtils"
+        },
+        "updateText": {
+            "actionType": "JSFunction",
+            "method": "updateText",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "aw.closePopup"
+                    }
+                ]
+            },
+            "deps": "js/showcasePopupActions"
+        },
+        "closePopupWindow": {
+            "actionType": "JSFunction",
+            "method": "hide",
+            "inputData": {
+                "popupId": "{{data.popupId}}",
+                "targetEvent": "{{$event}}"
+            },
+            "deps": "js/popupService"
+        },
+
+
+
+        "getFilteredData": {
+            "actionType": "RESTService",
+            "method": "GET",
+            "inputData": {
+                "method": "GET",
+                "url": "test/staticresponses/splmTableData.json"
+            },
+            "outputData": {
+                "filterResults": "{{function:applySortAndFilterRows}}",
+                "totalFound": "data.countries.length"
+            },
+            "deps": "js/splmTableColumnFilteringService"
+        },
+        "applyFilterFacets": {
+            "actionType": "RESTService",
+            "method": "GET",
+            "inputData": {
+                "method": "GET",
+                "url": "test/staticresponses/splmTableData.json"
+            },
+            "outputData": {
+                "filterFacetResults": "{{function:getFilterFacets}}"
+            },
+            "deps": "js/splmTableColumnFilteringService"
+        },
+        "getFilterFacetData": {
+            "actionType": "JSFunction",
+            "method": "getFilterFacetData",
+            "inputData": {
+                "filterFacetInput": "{{filterFacetInput}}"
+            },
+            "outputData": {
+                "fullData": ""
+            },
+            "deps": "js/splmTableColumnFilteringService"
+        },
+        "filterFacetBatchAction": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "getFilterFacetData"
+                },
+                {
+                    "action": "applyFilterFacets"
+                }
+            ]
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "aw.closePopup",
+            "action": "closePopupWindow"
+        }
+    ],
+    "data": {
+        "newtext": {
+            "displayName": "Enter new text",
+            "type": "STRING",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": "Default String",
+            "dispValue": "Default String"
+        },
+        "listBox1": {
+            "displayName": "Greatest Lake",
+            "type": "STRING",
+            "isRequired": true,
+            "dataProvider": "dataProviderLake",
+            "uiValue": "Superior",
+            "dbValue": "sup"
+        },
+        "pageSize": 40
+    },
+    "dataProviders": {
+        "dataProviderLake": {
+            "dataProviderType": "Action",
+            "action": "loadData",
+            "response": "{{data.pageList}}",
+            "totalFound": "{{data.pageCount}}"
+        },
+
+
+
+        "filteredDataProvider": {
+            "action": "getFilteredData",
+            "response": "{{data.filterResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "searchIndex": "{{data.searchIndex}}",
+            "filterFacetAction": "filterFacetBatchAction",
+            "filterFacetResults": "{{data.filterFacetResults}}"
+        }
+    },
+
+
+
+    "columnProviders": {
+        "filteringColumnProvider": {
+            "frozenColumnIndex": 1,
+            "columns": [
+                {
+                    "name": "name",
+                    "displayName": "{{i18n.countryName}}",
+                    "minWidth": 60,
+                    "width": 150,
+                    "propertyName": "name"
+                },
+                {
+                    "name": "capital",
+                    "displayName": "{{i18n.capital}}",
+                    "minWidth": 100,
+                    "width": 125,
+                    "propertyName": "capital"
+                },
+                {
+                    "name": "population",
+                    "displayName": "{{i18n.population}}",
+                    "minWidth": 100,
+                    "width": 125,
+                    "dataType": "INTEGER",
+                    "propertyName": "population"
+                },
+                {
+                    "name": "area",
+                    "displayName": "{{i18n.area}}",
+                    "minWidth": 100,
+                    "width": 125,
+                    "dataType": "INTEGER",
+                    "propertyName": "area"
+                },
+                {
+                    "name": "density",
+                    "displayName": "{{i18n.populationDensity}}",
+                    "minWidth": 100,
+                    "width": 125,
+                    "dataType": "DOUBLE",
+                    "propertyName": "density"
+                },
+                {
+                    "name": "geography",
+                    "displayName": "{{i18n.geography}}",
+                    "minWidth": 150,
+                    "width": 150,
+                    "propertyName": "geography"
+                },
+                {
+                    "name": "date_modified",
+                    "displayName": "{{i18n.lastModifiedDate}}",
+                    "minWidth": 100,
+                    "width": 175,
+                    "dataType": "DATE",
+                    "propertyName": "date_modified"
+                },
+                {
+                    "name": "region",
+                    "displayName": "{{i18n.region}}",
+                    "minWidth": 100,
+                    "width": 125,
+                    "propertyName": "region"
+                },
+                {
+                    "name": "borders",
+                    "displayName": "{{i18n.borders}}",
+                    "minWidth": 150,
+                    "width": 150,
+                    "propertyName": "borders"
+                }
+            ]
+        }
+    },
+    "grids": {
+        "splmTableColumnFilters": {
+            "dataProvider": "filteredDataProvider",
+            "columnProvider": "filteringColumnProvider",
+            "addIconColumn": false,
+            "gridOptions": {
+                "enablePinning": true,
+                "enableSorting": true,
+                "isFilteringEnabled": true,
+                "enableGridMenu": true,
+                "enableColumnHiding":false
+            }
+        }
+    },
+    "functions": {
+        "applySortAndFilterRows": {
+            "functionName": "applySortAndFilterRows",
+            "parameters": [
+                "{{data.columnProviders.filteringColumnProvider.columnFilters}}",
+                "{{data.columnProviders.filteringColumnProvider.sortCriteria}}",
+                "{{data.dataProviders.filteredDataProvider.startIndex}}",
+                "{{data.pageSize}}"
+            ]
+        },
+        "getFilterFacets": {
+            "functionName": "getFilterFacets",
+            "parameters": [
+                "{{data.columnProviders.filteringColumnProvider.columnFilters}}",
+                "{{data.fullData}}"
+            ]
+        }
+    },
+
+    "i18n": {
+        "change": [
+            "TCUICommandPanelsMessages"
+        ],
+        "updateValue": "Update Value",
+        "CancelText": [
+            "TCUICommandPanelsMessages"
+        ],
+
+        "countryName": [
+            "splmTableMessages"
+        ],
+        "capital": [
+            "splmTableMessages"
+        ],
+        "population": [
+            "splmTableMessages"
+        ],
+        "area": [
+            "splmTableMessages"
+        ],
+        "populationDensity": [
+            "splmTableMessages"
+        ],
+        "geography": [
+            "splmTableMessages"
+        ],
+        "lastModifiedDate": [
+            "splmTableMessages"
+        ],
+        "region": [
+            "splmTableMessages"
+        ],
+        "borders": [
+            "splmTableMessages"
+        ]
+    }
+}

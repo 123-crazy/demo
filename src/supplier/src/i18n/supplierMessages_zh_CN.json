@@ -1,0 +1,10 @@
+{
+    "header": "Header",
+    "body": "Body",
+    "footer": "Footer",
+    "checkBoxName": "Enable the OK button in footer",
+    "save": "Ok",
+    "textValue": "Contents here",
+    "supplierCommandTitle": "测试弹窗",
+    "supplierCommandDescription": "supplierCommandDescription"
+}

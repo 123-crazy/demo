@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "1.0.0",
+  "imports": [
+    "js/aw-command-panel.directive",
+    "js/aw-panel-header.directive",
+    "js/aw-panel-body.directive",
+    "js/aw-textbox.directive",
+    "js/aw-textarea.directive",
+    "js/aw-panel-footer.directive",
+    "js/aw-button.directive",
+    "js/enable-when.directive",
+    "js/aw-i18n.directive"
+  ],
+  "data": {
+    "id": {
+      "displayName": "ID",
+      "type": "STRING",
+      "isRequired": true,
+      "isEditable": "true",
+      "dbValue": "0",
+      "autofocus": "true"
+    },
+    "revision": {
+      "displayName": "版本",
+      "type": "STRING",
+      "isRequired": true,
+      "isEditable": "true",
+      "dbValue": "A",
+      "autofocus": "true"
+    },
+    "name": {
+      "displayName": "名称",
+      "type": "STRING",
+      "isRequired": true,
+      "isEditable": "true",
+      "dbValue": null,
+      "dispValue": ""
+    }
+  },
+  "actions": {
+    "generateNextValues": {
+      "actionType": "JSFunction",
+      "method": "generateNextValues",
+      "inputData": {
+        "data1": "{{data}}"
+      },
+      "deps": "js/createRFQCommandService"
+    },
+    "createObjects": {
+      "actionType": "JSFunction",
+      "method": "createRFQ",
+      "inputData": {
+        "data": "{{data}}",
+        "userUid": "{{ctx.user.uid}}",
+        "ctx": "{{ctx}}"
+      },
+      "events": {
+        "success": [
+          {
+            "name": "closePanel"
+          },
+          {
+            "name": "clickInfoEvent"
+          }
+        ]
+      },
+      "deps": "js/createRFQCommandService"
+    },
+    "closeCurrentOpenedPanel": {
+      "actionType": "Event",
+      "method": "Event",
+      "inputData": {
+        "events": [
+          {
+            "name": "complete",
+            "eventData": {
+              "source": "toolAndInfoPanel"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "dataProviders": {},
+  "onEvent": [
+    {
+      "eventId": "createRFQCommand.contentLoaded",
+      "action": "generateNextValues"
+    },
+    {
+      "eventId": "closePanel",
+      "action": "closeCurrentOpenedPanel"
+    },
+    {
+      "eventId": "clickInfoEvent",
+      "message": "clickInfoMessage"
+    }
+  ],
+  "i18n": {
+    "messageInfo": "{{data.id.dbValue}}创建成功"
+  },
+  "messages": {
+    "clickInfoMessage": {
+      "messageType": "INFO",
+      "messageText": "{{i18n.messageInfo}}"
+    }
+  },
+  "conditions": {
+    "isEmpty": {
+      "expression": "data.id.dbValue !== null&&data.revision.dbValue !== null&&data.name.dbValue!== null&&data.name.dbValue!== ''"
+    }
+  },
+  "mock": {}
+}

@@ -1,0 +1,130 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-splm-table.directive"
+    ],
+    "actions": {
+        "loadData": {
+            "actionType": "RESTService",
+            "method": "GET",
+            "inputData": {
+                "request": {
+                    "method": "GET",
+                    "url": "splmTableData.json"
+                }
+            },
+            "outputData": {
+                "filterResults": "{{function:filterRowsWithSort}}",
+                "totalFound": "data.countries.length"
+            },
+            "deps": "js/splmTableColumnSortingService"
+        }
+    },
+    "data": {
+        "pageSize": 40
+    },
+    "dataProviders": {
+        "exampleSortDataProvider": {
+            "action": "loadData",
+            "response": "{{data.filterResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "commandsAnchor": "aw_splmTableContextMenu"
+        }
+    },
+    "columnProviders": {
+        "exampleColumnProvider": {
+            "frozenColumnIndex": -1,
+            "columns": [
+                {
+                    "name": "name",
+                    "displayName": "{{i18n.countryName}}",
+                    "minWidth": 60,
+                    "width": 150,
+                    "isTableCommand": true
+                },
+                {
+                    "name": "cca3",
+                    "displayName": "{{i18n.countryCode}}",
+                    "maxWidth": 300,
+                    "minWidth": 80,
+                    "width": 100
+                },
+                {
+                    "name": "currency",
+                    "displayName": "{{i18n.currency}}",
+                    "minWidth": 80,
+                    "width": 80
+                },
+                {
+                    "name": "capital",
+                    "displayName": "{{i18n.capital}}",
+                    "minWidth": 100,
+                    "width": 125
+                },
+                {
+                    "name": "region",
+                    "displayName": "{{i18n.region}}",
+                    "minWidth": 100,
+                    "width": 125
+                },
+                {
+                    "name": "subregion",
+                    "displayName": "{{i18n.subregion}}",
+                    "minWidth": 150,
+                    "width": 150
+                },
+                {
+                    "name": "borders",
+                    "displayName": "{{i18n.borders}}",
+                    "minWidth": 150,
+                    "width": 150,
+                    "enableSorting": false
+                }
+            ]
+        }
+    },
+    "grids": {
+        "exampleTable": {
+            "dataProvider": "exampleSortDataProvider",
+            "columnProvider": "exampleColumnProvider",
+            "addIconColumn": false,
+            "gridOptions": {
+                "enablePinning": false,
+                "enableSorting": true
+            }
+        }
+    },
+    "functions": {
+        "filterRowsWithSort": {
+            "functionName": "filterRowsWithSort",
+            "parameters": [
+                "{{data.columnProviders.exampleColumnProvider.sortCriteria}}",
+                "{{data.dataProviders.exampleSortDataProvider.startIndex}}",
+                "{{data.pageSize}}"
+            ]
+        }
+    },
+    "i18n": {
+        "countryName": [
+            "splmTableMessages"
+        ],
+        "countryCode": [
+            "splmTableMessages"
+        ],
+        "currency": [
+            "splmTableMessages"
+        ],
+        "capital": [
+            "splmTableMessages"
+        ],
+        "region": [
+            "splmTableMessages"
+        ],
+        "subregion": [
+            "splmTableMessages"
+        ],
+        "borders": [
+            "splmTableMessages"
+        ]
+    }
+}
